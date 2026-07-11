@@ -666,6 +666,7 @@ a:hover { color: #e85d45; }
     						<ul>
         						<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
 								<li><a href="#experience" class="scrolly"><span class="icon solid fa-briefcase">Work Experience</span></a></li>
+					<li><a href="#leadership" id="leadership-link" class="scrolly"><span class="icon solid fa-flag">Leadership</span></a></li>
         						<li><a href="#portfolio" id="portfolio-link" class="scrolly"><span class="icon solid fa-th">Projects</span></a></li>
         						<li><a href="#about" id="about-link" class="scrolly"><span class="icon solid fa-user">About Me</span></a></li>
         						<li><a href="#contact" id="contact-link" class="scrolly"><span class="icon solid fa-envelope">Contact</span></a></li>
@@ -769,6 +770,56 @@ a:hover { color: #e85d45; }
   </div>
 </div>
 </section>
+
+		<!-- LEADERSHIP ACTIVITIES SECTION -->
+		<section id="leadership" class="two">
+			<div class="container">
+				<header>
+					<h2>Leadership Activities</h2>
+					<p>Building organizations, communities, and impact outside the day job.</p>
+				</header>
+
+				<div class="portfolio-role-list">
+
+					<!-- Cornell Graduate Product Management Club -->
+					<article class="portfolio-role" onclick="openModal('modal-leadership-cgpmc')">
+						<div class="experience-image"><img src="images/leadership-placeholder.svg" alt="Cornell Graduate Product Management Club" /></div>
+						<div class="role-content">
+							<span class="company-badge">Cornell Graduate Product Management Club</span>
+							<h3>President</h3>
+							<p class="sar-block">
+								<strong>Ithaca, NY<br>
+							</p>
+						</div>
+					</article>
+
+					<!-- Canizares Center for Emerging Markets -->
+					<article class="portfolio-role" onclick="openModal('modal-leadership-canizares')">
+						<div class="experience-image"><img src="images/leadership-placeholder.svg" alt="Canizares Center for Emerging Markets" /></div>
+						<div class="role-content">
+							<span class="company-badge">The Canizares Center for Emerging Markets</span>
+							<h3>Fellow</h3>
+							<p class="sar-block">
+								<strong>Ithaca, NY<br>
+							</p>
+						</div>
+					</article>
+
+					<!-- Prayatnam -->
+					<article class="portfolio-role" onclick="openModal('modal-leadership-prayatnam')">
+						<div class="experience-image"><img src="images/leadership-placeholder.svg" alt="Prayatnam - VIT Social Welfare and Development Club" /></div>
+						<div class="role-content">
+							<span class="company-badge">Prayatnam, VIT Social Welfare &amp; Development Club</span>
+							<h3>Event Lead</h3>
+							<p class="sar-block">
+								<strong>Vellore, India<br>
+							</p>
+						</div>
+					</article>
+
+				</div>
+			</div>
+		</section>
 
 
 <!-- PORTFOLIO / PROJECTS SECTION -->
@@ -1672,6 +1723,96 @@ a:hover { color: #e85d45; }
 			</div>
 		</div>
 	</div>
+
+		<!-- LEADERSHIP MODALS -->
+
+		<!-- Cornell Graduate Product Management Club -->
+		<div id="modal-leadership-cgpmc" class="modal">
+			<div class="modal-content">
+				<span class="close-modal" onclick="closeModal('modal-leadership-cgpmc')">&times;</span>
+
+				<h2>President &mdash; Cornell Graduate Product Management Club</h2>
+
+				<h4>SITUATION</h4>
+				<p>The Cornell Graduate Product Management Club operated informally, without official campus recognition, governance structure, or funding. For it to grow into a lasting resource for graduate students pursuing product careers, it needed to become an officially accredited university entity.</p>
+
+				<h4>ACTION</h4>
+				<ul>
+					<li><strong>Institutionalization:</strong> Authored the club's official constitution, built out the inaugural executive board, and registered the club with the university's Campus Groups system.</li>
+					<li><strong>Financial &amp; Event Management:</strong> Secured university funding and launched the club's first campus-wide networking event.</li>
+					<li><strong>Strategic Partnerships:</strong> Built collaborations with Johns Hopkins University and Duke University to co-host cross-disciplinary Product Management Hackathons.</li>
+				</ul>
+
+				<h4>RESULT</h4>
+				<ul>
+					<li>Transformed an informal student group into an officially recognized, funded university club.</li>
+					<li>Cornell secured 2nd prize in a major multi-university Product Management Hackathon.</li>
+				</ul>
+
+				<div style="text-align:center; margin-top:2em;">
+					<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-leadership-cgpmc')">Close</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Canizares Center for Emerging Markets -->
+		<div id="modal-leadership-canizares" class="modal">
+			<div class="modal-content">
+				<span class="close-modal" onclick="closeModal('modal-leadership-canizares')">&times;</span>
+
+				<h2>Fellow &mdash; The Canizares Center for Emerging Markets</h2>
+
+				<h4>SITUATION</h4>
+				<p>Emerging-market retail supply chains, especially India's kirana (traditional grocery) ecosystem, remain fragmented and relationship-based. COVID-19 exposed the fragility of this model, creating a need for research into how digital transformation could modernize it.</p>
+
+				<h4>ACTION</h4>
+				<ul>
+					<li><strong>Framework Analysis:</strong> Documented the ecosystem's shift from manual, relationship-driven "push" models to digital "pull" models.</li>
+					<li><strong>Technology Stack Mapping:</strong> Mapped the enabling technology stack, including smartphone adoption, UPI payments, AI-driven demand forecasting, and ONDC.</li>
+					<li><strong>Operational Optimization:</strong> Analyzed the financial impact of eliminating dead stock, stockouts, and waste across the supply chain.</li>
+				</ul>
+
+				<h4>RESULT</h4>
+				<ul>
+					<li>Published a strategic article via the Canizares Center.</li>
+					<li>Was the only Master of Engineering (M.Eng) Fellow selected for the academic year.</li>
+				</ul>
+
+				<div style="text-align:center; margin-top:2em;">
+					<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-leadership-canizares')">Close</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Prayatnam -->
+		<div id="modal-leadership-prayatnam" class="modal">
+			<div class="modal-content">
+				<span class="close-modal" onclick="closeModal('modal-leadership-prayatnam')">&times;</span>
+
+				<h2>Event Lead &mdash; Prayatnam, VIT Social Welfare &amp; Development Club</h2>
+
+				<h4>SITUATION</h4>
+				<p>As part of the team preparing to launch Prayatnam, a program supporting 30+ differently-abled children at Jeevan Dhara Vidyalaya, the designated Team Lead withdrew days before launch due to a personal emergency. I proactively stepped up as the primary Team Lead to keep the program on track.</p>
+
+				<h4>ACTION</h4>
+				<ul>
+					<li><strong>Strategic Program Planning:</strong> Built a detailed master plan covering daily operations, volunteer responsibilities, and time slots.</li>
+					<li><strong>Logistics &amp; Resource Management:</strong> Managed resource allocation and commute logistics for the volunteer team.</li>
+					<li><strong>Curriculum Innovation:</strong> Designed creative Math and Science teaching methodologies suited to the children's needs.</li>
+					<li><strong>Team Alignment:</strong> Fostered a culture of equality and unity among volunteers.</li>
+				</ul>
+
+				<h4>RESULT</h4>
+				<ul>
+					<li>Successfully conducted the 3-month program without delay.</li>
+					<li>School faculty and administrators were highly impressed by the team's execution.</li>
+				</ul>
+
+				<div style="text-align:center; margin-top:2em;">
+					<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-leadership-prayatnam')">Close</a>
+				</div>
+			</div>
+		</div>
 
 
 	</body>
