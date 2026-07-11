@@ -1554,4 +1554,132 @@ a:hover { color: #e85d45; }
 
 
 
+	<!-- =======================
+	NEW PROJECT MODALS
+	======================= -->
+
+	<!-- 6. Career Ops AI Agent -->
+	<div id="modal-career-ops" class="modal">
+		<div class="modal-content">
+			<span class="close-modal" onclick="closeModal('modal-career-ops')">&times;</span>
+
+			<h2>Career Ops AI Agent &mdash; Autonomous Job Search Automation</h2>
+
+			<h4>SITUATION</h4>
+			<p>Tracking new job openings across 100+ target companies on Greenhouse and Lever career pages required constantly revisiting each company's careers page by hand &mdash; a manual process that doesn't scale and is easy to fall behind on.</p>
+
+			<h4>ACTION</h4>
+			<ul>
+				<li><strong>API Scraper:</strong> Built a Python scraper that queries the Greenhouse and Lever job board APIs directly for 100+ companies, rather than scraping rendered HTML, for reliable structured data.</li>
+				<li><strong>Self-Healing Auditor:</strong> Added an auditor component that detects when a company's API schema or endpoint changes or breaks, flags the issue, and adapts automatically without manual patching.</li>
+				<li><strong>Scheduled Dispatcher:</strong> Wired the pipeline to a scheduler that runs automatically end-to-end and delivers new or updated postings on a recurring basis.</li>
+			</ul>
+
+			<h4>RESULT</h4>
+			<ul>
+				<li><strong>Zero Manual Intervention:</strong> The full pipeline runs unattended end-to-end, from scraping through delivery.</li>
+				<li><strong>Scale:</strong> Continuously tracks job postings across 100+ companies.</li>
+			</ul>
+
+			<h4>KEY TECHNOLOGIES</h4>
+			<p>Python, Greenhouse API, Lever API, Task Scheduling</p>
+
+			<div style="text-align:center; margin-top:2em;">
+				<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-career-ops')">Close Project</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- 7. Menu Intelligence -->
+	<div id="modal-menu-intelligence" class="modal">
+		<div class="modal-content">
+			<span class="close-modal" onclick="closeModal('modal-menu-intelligence')">&times;</span>
+
+			<h2>Menu Intelligence &mdash; LLM + RAG Competitive Analysis Pipeline</h2>
+
+			<h4>SITUATION</h4>
+			<p>Competitive menu and pricing analysis against restaurant competitors traditionally takes days of manual research spent gathering, organizing, and comparing menu data by hand.</p>
+
+			<h4>ACTION</h4>
+			<ul>
+				<li>Designed a Retrieval-Augmented Generation (RAG) pipeline in Python using the Claude API that ingests competitor menu data and builds a retrievable knowledge base.</li>
+				<li>Built a retrieval layer that pulls the most relevant competitor context for a given question, then passes it to Claude to synthesize a structured competitive analysis.</li>
+				<li>Exposed the pipeline as a single natural-language query interface, so a full competitive breakdown can be requested on demand.</li>
+			</ul>
+
+			<h4>RESULT</h4>
+			<ul>
+				<li><strong>Speed:</strong> Compressed a multi-day manual research process into a single query, delivering competitive analysis in minutes.</li>
+			</ul>
+
+			<h4>KEY TECHNOLOGIES</h4>
+			<p>Claude API, Python, RAG</p>
+
+			<div style="text-align:center; margin-top:2em;">
+				<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-menu-intelligence')">Close Project</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- 8. MCP Weather Tool -->
+	<div id="modal-mcp-weather" class="modal">
+		<div class="modal-content">
+			<span class="close-modal" onclick="closeModal('modal-mcp-weather')">&times;</span>
+
+			<h2>MCP Weather Tool &mdash; Live Weather Data for LLM Assistants</h2>
+
+			<h4>SITUATION</h4>
+			<p>LLM assistants need reliable access to real-time, authoritative weather data. The National Weather Service (NWS) publishes a free public API, but it wasn't accessible to an LLM assistant as a callable tool out of the box.</p>
+
+			<h4>ACTION</h4>
+			<ul>
+				<li>Built a custom Model Context Protocol (MCP) server in Python that wraps the NWS API.</li>
+				<li>Exposed tools for live forecasts and active weather alerts that any MCP-compatible LLM assistant can call directly.</li>
+			</ul>
+
+			<h4>RESULT</h4>
+			<ul>
+				<li>Gives any connected LLM assistant live, authoritative U.S. weather forecasts and alerts through a clean, reusable tool interface.</li>
+			</ul>
+
+			<h4>KEY TECHNOLOGIES</h4>
+			<p>Python, MCP (Model Context Protocol), National Weather Service API</p>
+
+			<div style="text-align:center; margin-top:2em;">
+				<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-mcp-weather')">Close Project</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- 9. RPS-ESP32-CNN -->
+	<div id="modal-rps-esp32" class="modal">
+		<div class="modal-content">
+			<span class="close-modal" onclick="closeModal('modal-rps-esp32')">&times;</span>
+
+			<h2>RPS-ESP32-CNN &mdash; Edge AI Rock-Paper-Scissors Classifier</h2>
+
+			<h4>SITUATION</h4>
+			<p>Wanted to explore a complete edge-AI pipeline, from raw data collection to real-time on-device inference, using a rock-paper-scissors hand-gesture classifier as the test case.</p>
+
+			<h4>ACTION</h4>
+			<ul>
+				<li>Collected and labeled image data for the three hand-gesture classes.</li>
+				<li>Trained a convolutional neural network (CNN) in TensorFlow/Keras on the labeled dataset.</li>
+				<li>Converted the trained model for embedded deployment and ran real-time on-device inference on an ESP32 running MicroPython.</li>
+			</ul>
+
+			<h4>RESULT</h4>
+			<ul>
+				<li>Delivered a working end-to-end edge AI system, from raw data collection to real-time gesture classification running directly on low-power embedded hardware.</li>
+			</ul>
+
+			<h4>KEY TECHNOLOGIES</h4>
+			<p>TensorFlow/Keras, Python, ESP32, MicroPython, CNN</p>
+
+			<div style="text-align:center; margin-top:2em;">
+				<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-rps-esp32')">Close Project</a>
+			</div>
+		</div>
+	</div>
+
 
