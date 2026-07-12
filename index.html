@@ -710,6 +710,69 @@ a:hover { color: #2F4A32; }
   display: contents;
   padding: 0 !important;
 }
+
+/* ============================================================
+   RAIL, FADE-IN, AND STAT BREAKS
+   ============================================================ */
+.rail-wrap { position: relative; padding-left: 26px; }
+.rail-wrap::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: #c9bb98;
+  z-index: 0;
+}
+.rail-wrap .color-block,
+.rail-wrap .item.color-block {
+  position: relative;
+  z-index: 1;
+}
+.rail-wrap .color-block::before,
+.rail-wrap .item.color-block::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 22px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #F2E4BE;
+  background: inherit;
+}
+.color-block-list .color-block,
+.color-block-list .item.color-block {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.color-block-list .color-block.in-view,
+.color-block-list .item.color-block.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stat-break {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 26px 20px;
+  text-align: center;
+  background: #FBF3DF;
+  border: 1px dashed #c9bb98;
+}
+.stat-break .stat-number {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #2F4A32;
+  margin: 0;
+}
+.stat-break .stat-caption {
+  font-size: 12px;
+  color: #8a7a4f;
+  margin: 6px 0 0;
+}
 </style>
 	</head>
 
@@ -779,7 +842,7 @@ a:hover { color: #2F4A32; }
 		<p>Overview of my roles in industry, leadership, and engineering projects.</p>
 	</header>
 
-	<div class="color-block-list">
+	<div class="color-block-list rail-wrap">
 		<div class="color-block cb-matcha" onclick="openModal('modal-ceer')">
 			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
 			<div><p class="color-block-title">FORVIA &mdash; CEER: EV Prototype Build</p><p class="color-block-desc">Riyadh, Saudi Arabia</p></div>
@@ -800,6 +863,11 @@ a:hover { color: #2F4A32; }
 	</div>
 </section>
 
+<div class="stat-break">
+	<p class="stat-number">63 cockpits</p>
+	<p class="stat-caption">Delivered on time &mdash; FORVIA CEER EV Prototype</p>
+</div>
+
 <!-- LEADERSHIP ACTIVITIES SECTION -->
 <section id="leadership" class="two">
 	<div class="container">
@@ -808,7 +876,7 @@ a:hover { color: #2F4A32; }
 		<p>Building organizations, communities, and impact outside the day job.</p>
 	</header>
 
-	<div class="color-block-list">
+	<div class="color-block-list rail-wrap">
 		<div class="color-block cb-forest" onclick="openModal('modal-leadership-cgpmc')">
 			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
 			<div><p class="color-block-title">President, Cornell Graduate Product Management Club</p><p class="color-block-desc">Ithaca, NY</p></div>
@@ -824,6 +892,11 @@ a:hover { color: #2F4A32; }
 	</div>
 	</div>
 </section>
+
+<div class="stat-break">
+	<p class="stat-number">2nd place</p>
+	<p class="stat-caption">Multi-university Product Management Hackathon</p>
+</div>
 
 <!-- PORTFOLIO / PROJECTS SECTION -->
 <section id="portfolio" class="two">
@@ -847,7 +920,7 @@ a:hover { color: #2F4A32; }
 		</ul>
 	</header>
 
-	<div class="color-block-list">
+	<div class="color-block-list rail-wrap">
 		<div class="item filter-item data-prod color-block cb-matcha" onclick="openModal('modal-marketbasket')">
 			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
 			<div><p class="color-block-title">Market Basket Analysis using R &amp; Python</p><p class="color-block-desc">Data &amp; Product</p></div>
@@ -1009,7 +1082,24 @@ a:hover { color: #2F4A32; }
                 });
               });
             });
-			</script>
+			
+document.addEventListener("DOMContentLoaded", function () {
+	var blocks = document.querySelectorAll('.color-block-list .color-block, .color-block-list .item.color-block');
+	if ('IntersectionObserver' in window) {
+		var io = new IntersectionObserver(function(entries) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('in-view');
+					io.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.15 });
+		blocks.forEach(function(b) { io.observe(b); });
+	} else {
+		blocks.forEach(function(b) { b.classList.add('in-view'); });
+	}
+});
+</script>
 
 <!-- MODALS -->
 
