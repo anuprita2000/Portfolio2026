@@ -645,7 +645,61 @@ a:hover { color: #e85d45; }
         margin-left: 0 !important;
     }
 }
-    	</style>
+    	
+/* ============================================================
+   COLOR BLOCK LAYOUT (Work Experience / Leadership / Projects)
+   ============================================================ */
+#experience, #leadership, #portfolio {
+  background-color: #F2E4BE !important;
+}
+.color-block-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.color-block {
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+.color-block-photo {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.color-block-photo svg { width: 20px; height: 20px; }
+.color-block-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0 0 4px;
+}
+.color-block-desc {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11.5px;
+  margin: 0;
+}
+.cb-matcha { background: #8FBF4D; }
+.cb-matcha .color-block-title { color: #1F3320; }
+.cb-matcha .color-block-desc { color: #2c4a1f; }
+.cb-matcha .color-block-photo { color: #1F3320; }
+.cb-forest { background: #2F4A32; }
+.cb-forest .color-block-title { color: #FAFAF5; }
+.cb-forest .color-block-desc { color: #A9DB5E; }
+.cb-forest .color-block-photo { color: #c7dcc3; }
+.cb-moss { background: #567A3A; }
+.cb-moss .color-block-title { color: #FAFAF5; }
+.cb-moss .color-block-desc { color: #dcecc8; }
+.cb-moss .color-block-photo { color: #e5efdb; }
+</style>
 	</head>
 
 	<body class="is-preload">
@@ -706,228 +760,126 @@ a:hover { color: #e85d45; }
 						</div>
 					</section>
 
-<!-- EXPERIENCE SECTION (Updated to SAR Format) -->
+<!-- EXPERIENCE SECTION (Color Block Layout) -->
 <section id="experience" class="two">
-	<div class="container"> 
-    <header>
-        <h2>Work Experience</h2>
-        <p>Overview of my roles in industry, leadership, and engineering projects.</p>
-    </header>
+	<div class="container">
+	<header>
+		<h2>Work Experience</h2>
+		<p>Overview of my roles in industry, leadership, and engineering projects.</p>
+	</header>
 
-  <div class="portfolio-role-list">
-
-    <!-- FORVIA - EV Prototype -->
-    <article class="portfolio-role" onclick="openModal('modal-ceer')">
-      <div class="experience-image"><img src="images/ceer.jpg" alt="FORVIA Logo" /></div>
-      <div class="role-content">
-        <span class="company-badge">FORVIA</span>
-        <h3>CEER : EV Prototype build</h3>
-        <p class="sar-block">
-          <strong>Riyadh, Saudi Arabia<br> 
-        </p>
-      </div>
-    </article>
-
-    <!-- FORVIA - Operations -->
-    <article class="portfolio-role" onclick="openModal('modal-forvia-ops')">
-      <div class="experience-image"><img src="images/forvia.jpg" alt="FORVIA Logo" /></div>
-      <div class="role-content">
-        <span class="company-badge">FORVIA</span>
-        <h3>Forvia : Global Business Operations</h3>
-        <p class="sar-block">
-            <strong>Pune, India<br>
-            
-        </p>
-      </div>
-    </article>
-
-    <!-- FORVIA - Design -->
-    <article class="portfolio-role" onclick="openModal('modal-forvia-dd')">
-      <div class="experience-image"><img src="images/faurecia.jpg" alt="FORVIA Logo" /></div>
-      <div class="role-content">
-        <span class="company-badge">FORVIA</span>
-        <h3>Forvia : Design & Development Engineer</h3>
-        <p class="sar-block">
-			<strong>Pune, India<br>
-            
-        </p>
-      </div>
-    </article>
-
-    <!-- L&T -->
-    <article class="portfolio-role" onclick="openModal('modal-lt')">
-      <div class="experience-image"><img src="images/L&T.jpg" alt="L&T Logo" /></div>
-      <div class="role-content">
-        <span class="company-badge lt">L&T (Larsen & Toubro)</span>
-        <h3>L&T Heavy Engineering : Program Planning & Execution Intern</h3>
-        <p class="sar-block">
-			<strong>Surat, India<br>
-            
-        </p>
-      </div>
-    </article>
-
-  </div>
-</div>
+	<div class="color-block-list">
+		<div class="color-block cb-matcha" onclick="openModal('modal-ceer')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">FORVIA &mdash; CEER: EV Prototype Build</p><p class="color-block-desc">Riyadh, Saudi Arabia</p></div>
+		</div>
+		<div class="color-block cb-forest" onclick="openModal('modal-forvia-ops')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">FORVIA: Global Business Operations</p><p class="color-block-desc">Pune, India</p></div>
+		</div>
+		<div class="color-block cb-moss" onclick="openModal('modal-forvia-dd')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">FORVIA: Design &amp; Development Engineer</p><p class="color-block-desc">Pune, India</p></div>
+		</div>
+		<div class="color-block cb-matcha" onclick="openModal('modal-lt')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">L&amp;T Heavy Engineering: Program Planning &amp; Execution Intern</p><p class="color-block-desc">Surat, India</p></div>
+		</div>
+	</div>
+	</div>
 </section>
 
-		<!-- LEADERSHIP ACTIVITIES SECTION -->
-		<section id="leadership" class="two">
-			<div class="container">
-				<header>
-					<h2>Leadership Activities</h2>
-					<p>Building organizations, communities, and impact outside the day job.</p>
-				</header>
+<!-- LEADERSHIP ACTIVITIES SECTION -->
+<section id="leadership" class="two">
+	<div class="container">
+	<header>
+		<h2>Leadership Activities</h2>
+		<p>Building organizations, communities, and impact outside the day job.</p>
+	</header>
 
-				<div class="portfolio-role-list">
-
-					<!-- Cornell Graduate Product Management Club -->
-					<article class="portfolio-role" onclick="openModal('modal-leadership-cgpmc')">
-						<div class="experience-image"><img src="images/leadership-placeholder.svg" alt="Cornell Graduate Product Management Club" /></div>
-						<div class="role-content">
-							<span class="company-badge">Cornell Graduate Product Management Club</span>
-							<h3>President</h3>
-							<p class="sar-block">
-								<strong>Ithaca, NY<br>
-							</p>
-						</div>
-					</article>
-
-					<!-- Canizares Center for Emerging Markets -->
-					<article class="portfolio-role" onclick="openModal('modal-leadership-canizares')">
-						<div class="experience-image"><img src="images/leadership-placeholder.svg" alt="Canizares Center for Emerging Markets" /></div>
-						<div class="role-content">
-							<span class="company-badge">The Canizares Center for Emerging Markets</span>
-							<h3>Fellow</h3>
-							<p class="sar-block">
-								<strong>Ithaca, NY<br>
-							</p>
-						</div>
-					</article>
-
-					<!-- Prayatnam -->
-					<article class="portfolio-role" onclick="openModal('modal-leadership-prayatnam')">
-						<div class="experience-image"><img src="images/leadership-placeholder.svg" alt="Prayatnam - VIT Social Welfare and Development Club" /></div>
-						<div class="role-content">
-							<span class="company-badge">Prayatnam, VIT Social Welfare &amp; Development Club</span>
-							<h3>Event Lead</h3>
-							<p class="sar-block">
-								<strong>Vellore, India<br>
-							</p>
-						</div>
-					</article>
-
-				</div>
-			</div>
-		</section>
-
+	<div class="color-block-list">
+		<div class="color-block cb-forest" onclick="openModal('modal-leadership-cgpmc')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">President, Cornell Graduate Product Management Club</p><p class="color-block-desc">Ithaca, NY</p></div>
+		</div>
+		<div class="color-block cb-matcha" onclick="openModal('modal-leadership-canizares')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Fellow, The Canizares Center for Emerging Markets</p><p class="color-block-desc">Ithaca, NY</p></div>
+		</div>
+		<div class="color-block cb-moss" onclick="openModal('modal-leadership-prayatnam')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Event Lead, Prayatnam &mdash; VIT Social Welfare &amp; Development Club</p><p class="color-block-desc">Vellore, India</p></div>
+		</div>
+	</div>
+	</div>
+</section>
 
 <!-- PORTFOLIO / PROJECTS SECTION -->
-						
-					<section id="portfolio" class="two">
-						<div class="container">
-							<header>
-            <h2>Projects</h2>
-            <p>Showcase of my work in product development, strategic operations, and data-driven project leadership.</p>
-            
-            <ul class="filter-buttons" style="list-style: none; padding: 0; margin: 1em 0 3em 0; text-align: center;">
-                <li style="display: inline-block; margin: 5px;">
-                    <a href="javascript:void(0)" class="button small active" onclick="filterSelection('all',this)">All</a>
-                    <div style="font-size: 0.7em; color: #888; margin-top: 5px;">Full Portfolio Overview</div>
-                </li>
-                <li style="display: inline-block; margin: 5px;">
-                    <a href="javascript:void(0)" class="button small" onclick="filterSelection('ops-sys',this)">Operations & Systems</a>
-                    <div style="font-size: 0.7em; color: #888; margin-top: 5px;">Engineering Management & Process Optimization</div>
-                </li>
-                <li style="display: inline-block; margin: 5px;">
-                    <a href="javascript:void(0)" class="button small" onclick="filterSelection('data-prod',this)">Data & Product</a>
-                    <div style="font-size: 0.7em; color: #888; margin-top: 5px;">Analytics & Strategic Insights</div>
-                </li>
-            </ul>
-        </header>
+<section id="portfolio" class="two">
+	<div class="container">
+	<header>
+		<h2>Projects</h2>
+		<p>Showcase of my work in product development, strategic operations, and data-driven project leadership.</p>
+		<ul class="filter-buttons" style="list-style: none; padding: 0; margin: 1em 0 3em 0; text-align: center;">
+			<li style="display: inline-block; margin: 5px;">
+				<a href="javascript:void(0)" class="button small active" onclick="filterSelection('all',this)">All</a>
+				<div style="font-size: 0.7em; color: #888; margin-top: 5px;">Full Portfolio Overview</div>
+			</li>
+			<li style="display: inline-block; margin: 5px;">
+				<a href="javascript:void(0)" class="button small" onclick="filterSelection('ops-sys',this)">Operations &amp; Systems</a>
+				<div style="font-size: 0.7em; color: #888; margin-top: 5px;">Engineering Management &amp; Process Optimization</div>
+			</li>
+			<li style="display: inline-block; margin: 5px;">
+				<a href="javascript:void(0)" class="button small" onclick="filterSelection('data-prod',this)">Data &amp; Product</a>
+				<div style="font-size: 0.7em; color: #888; margin-top: 5px;">Analytics &amp; Strategic Insights</div>
+			</li>
+		</ul>
+	</header>
 
-        <div class="row">
-            <!-- Column 1 -->
-            <div class="col-4 col-12-mobile">
-                <article class="item filter-item data-prod">
-                    <!-- Added onclick -->
-                    <a href="javascript:void(0)" onclick="openModal('modal-marketbasket')" class="image fit portfolio-thumb"><img src="images/marketbasket.jpg" alt="" /></a>
-                    <header><h3>Market Basket Analysis using R & Python</h3></header>
-                </article>
-                <article class="item filter-item ops-sys">
-                    <!-- Added onclick -->
-                    <a href="javascript:void(0)" onclick="openModal('modal-bigred')" class="image fit portfolio-thumb"><img src="images/bigredbites.jpg" alt="" /></a>
-                    <header><h3>Program Management, Big Red Bites</h3></header>
-                </article>
-            </div>
-            
-            <!-- Column 2 -->
-            <div class="col-4 col-12-mobile">
-                <article class="item filter-item data-prod">
-                    <!-- Added onclick -->
-                    <a href="javascript:void(0)" onclick="openModal('modal-plant')" class="image fit portfolio-thumb"><img src="images/clusterprice.jpg" alt="" /></a>
-                    <header><h3>Market Entry Strategy of a Plant-based snack</h3></header>
-                </article>
-                <article class="item filter-item ops-sys">
-                    <!-- Added onclick -->
-                    <a href="javascript:void(0)" onclick="openModal('modal-crdf')" class="image fit portfolio-thumb"><img src="images/crdf1.jpg" alt="" /></a>
-                    <header><h3>Robotic Arm, CRDF</h3></header>
-                </article>
-            </div>
-
-            <!-- Column 3 -->
-            <div class="col-4 col-12-mobile">
-                <article class="item filter-item data-prod">
-                    <!-- Added onclick -->
-                    <a href="javascript:void(0)" onclick="openModal('modal-drivebuddy')" class="image fit portfolio-thumb"><img src="images/drivebuddy.jpg" alt="" /></a>
-                    <header><h3>Business & Technology, DrivebuddyAI</h3></header>
-                </article>
-
-			<!-- NEW VIT SOCIALS CARD -->
-    <!-- Replace 'images/vit_socials.jpg' with your actual thumbnail image -->
-    			<article class="item filter-item ops-sys">
-        			<a href="javascript:void(0)" onclick="openModal('modal-vit')" class="image fit portfolio-thumb"><img src="images/vitsocials.jpg" alt="" /></a>
-        			<header><h3>VIT Socials : Prayatnam</h3></header>
-    				</article>
-				</div>
-
-						<!-- Column 4 -->
-						<div class="col-4 col-12-mobile">
-							<!-- Career Ops AI Agent -->
-							<!-- Replace 'images/career-ops-placeholder.svg' with your actual thumbnail image -->
-							<article class="item filter-item ops-sys">
-								<a href="javascript:void(0)" onclick="openModal('modal-career-ops')" class="image fit portfolio-thumb"><img src="images/career-ops-placeholder.svg" alt="" /></a>
-								<header><h3>Career Ops AI Agent</h3></header>
-							</article>
-							<!-- Menu Intelligence -->
-							<!-- Replace 'images/menu-intelligence-placeholder.svg' with your actual thumbnail image -->
-							<article class="item filter-item data-prod">
-								<a href="javascript:void(0)" onclick="openModal('modal-menu-intelligence')" class="image fit portfolio-thumb"><img src="images/menu-intelligence-placeholder.svg" alt="" /></a>
-								<header><h3>Menu Intelligence</h3></header>
-							</article>
-						</div>
-
-						<!-- Column 5 -->
-						<div class="col-4 col-12-mobile">
-							<!-- MCP Weather Tool -->
-							<!-- Replace 'images/mcp-weather-placeholder.svg' with your actual thumbnail image -->
-							<article class="item filter-item ops-sys">
-								<a href="javascript:void(0)" onclick="openModal('modal-mcp-weather')" class="image fit portfolio-thumb"><img src="images/mcp-weather-placeholder.svg" alt="" /></a>
-								<header><h3>MCP Weather Tool</h3></header>
-							</article>
-							<!-- RPS-ESP32-CNN -->
-							<!-- Replace 'images/rps-esp32-placeholder.svg' with your actual thumbnail image -->
-							<article class="item filter-item data-prod">
-								<a href="javascript:void(0)" onclick="openModal('modal-rps-esp32')" class="image fit portfolio-thumb"><img src="images/rps-esp32-placeholder.svg" alt="" /></a>
-								<header><h3>RPS-ESP32-CNN</h3></header>
-							</article>
-						</div>
-            </div>
-        </div>
-    
+	<div class="color-block-list">
+		<div class="item filter-item data-prod color-block cb-matcha" onclick="openModal('modal-marketbasket')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Market Basket Analysis using R &amp; Python</p><p class="color-block-desc">Data &amp; Product</p></div>
+		</div>
+		<div class="item filter-item ops-sys color-block cb-forest" onclick="openModal('modal-bigred')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Program Management, Big Red Bites</p><p class="color-block-desc">Operations &amp; Systems</p></div>
+		</div>
+		<div class="item filter-item data-prod color-block cb-moss" onclick="openModal('modal-plant')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Market Entry Strategy of a Plant-based Snack</p><p class="color-block-desc">Data &amp; Product</p></div>
+		</div>
+		<div class="item filter-item ops-sys color-block cb-matcha" onclick="openModal('modal-crdf')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Robotic Arm, CRDF</p><p class="color-block-desc">Operations &amp; Systems</p></div>
+		</div>
+		<div class="item filter-item data-prod color-block cb-forest" onclick="openModal('modal-drivebuddy')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Business &amp; Technology, DrivebuddyAI</p><p class="color-block-desc">Data &amp; Product</p></div>
+		</div>
+		<div class="item filter-item ops-sys color-block cb-moss" onclick="openModal('modal-vit')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">VIT Socials: Prayatnam</p><p class="color-block-desc">Operations &amp; Systems</p></div>
+		</div>
+		<div class="item filter-item ops-sys color-block cb-matcha" onclick="openModal('modal-career-ops')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Career Ops AI Agent</p><p class="color-block-desc">Operations &amp; Systems</p></div>
+		</div>
+		<div class="item filter-item data-prod color-block cb-forest" onclick="openModal('modal-menu-intelligence')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Menu Intelligence</p><p class="color-block-desc">Data &amp; Product</p></div>
+		</div>
+		<div class="item filter-item ops-sys color-block cb-moss" onclick="openModal('modal-mcp-weather')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">MCP Weather Tool</p><p class="color-block-desc">Operations &amp; Systems</p></div>
+		</div>
+		<div class="item filter-item data-prod color-block cb-matcha" onclick="openModal('modal-rps-esp32')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">RPS-ESP32-CNN</p><p class="color-block-desc">Data &amp; Product</p></div>
+		</div>
+	</div>
+	</div>
 </section>
-
-							
 
 <!-- About Me -->
 					<section id="about" class="three" style="padding-bottom: 1em !important;">
