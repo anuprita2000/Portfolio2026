@@ -789,6 +789,48 @@ a:hover { color: #2F4A32; }
 			.writing-title-link { font-family: Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: bold; color: #2c2c28; text-decoration: none; }
 			.writing-title-link:hover { color: #2F4A32; text-decoration: underline; }
 			.writing-tags { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; color: #79715c; margin: 6px 0 0; }
+
+/* Calm Experience cards: cream + terracotta accent */
+#experience .cb-matcha, #experience .cb-forest, #experience .cb-moss {
+  background-color: #FFFDF7 !important;
+  border-left: 3px solid #C17A54 !important;
+}
+#experience .cb-matcha .color-block-title, #experience .cb-forest .color-block-title, #experience .cb-moss .color-block-title {
+  color: #2C2C28 !important;
+}
+#experience .cb-matcha .color-block-desc, #experience .cb-forest .color-block-desc, #experience .cb-moss .color-block-desc {
+  color: #C17A54 !important;
+}
+#experience .cb-matcha .color-block-photo, #experience .cb-forest .color-block-photo, #experience .cb-moss .color-block-photo {
+  background-color: rgba(193,122,84,0.12) !important;
+  color: #C17A54 !important;
+}
+/* Compact type scale */
+section h2 { font-size: 1.6em !important; }
+#main p { font-size: 0.92em !important; }
+#nav a { font-size: 13px !important; letter-spacing: 0.3px; }
+/* Fixed left sidebar nav (desktop only), Brittany Chiang style */
+@media screen and (min-width: 981px) {
+  #header {
+    position: fixed !important;
+    top: 0 !important; left: 0 !important;
+    width: 260px !important;
+    height: 100vh !important;
+    overflow-y: auto;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 1.75rem !important;
+    text-align: left !important;
+  }
+  #header .top, #header .bottom { text-align: left !important; }
+  #header h1 { font-size: 22px !important; text-align: left !important; }
+  #header nav#nav ul { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
+  #header nav#nav ul li { margin: 0 !important; padding: 0 !important; border: none !important; }
+  #header nav#nav a { font-size: 12.5px !important; padding: 2px 0 !important; }
+  #header ul.icons { justify-content: flex-start !important; }
+  #main, #footer { margin-left: 260px !important; }
+}
 </style>
 	</head>
 
