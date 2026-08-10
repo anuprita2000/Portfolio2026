@@ -844,6 +844,10 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 /* Compact card titles (AI & Digital Builds, Selected Projects, Leadership) */
 .nc-title { font-size: 15px !important; line-height: 1.3 !important; }
 .nc-role { font-size: 11px !important; letter-spacing: 0.4px !important; }
+
+/* Fix specificity: #main p was beating .nc-title/.nc-role */
+#main .nc-title { font-size: 15px !important; }
+#main .nc-role { font-size: 11px !important; }
 </style>
 	</head>
 
