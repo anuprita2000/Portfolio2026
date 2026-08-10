@@ -649,7 +649,7 @@ a:hover { color: #2F4A32; }
 /* ============================================================
    COLOR BLOCK LAYOUT (Work Experience / Leadership / Projects)
    ============================================================ */
-#experience, #leadership, #portfolio {
+#experience, #leadership, #ai-projects, #portfolio {
   background-color: #F2E4BE !important;
 }
 .color-block-list {
@@ -795,6 +795,7 @@ a:hover { color: #2F4A32; }
         						<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
 								<li><a href="#experience" class="scrolly"><span class="icon solid fa-briefcase">Work Experience</span></a></li>
 					<li><a href="#leadership" id="leadership-link" class="scrolly"><span class="icon solid fa-flag">Leadership</span></a></li>
+					<li><a href="#ai-projects" id="ai-projects-link" class="scrolly"><span class="icon solid fa-microchip">AI Projects</span></a></li>
         						<li><a href="#portfolio" id="portfolio-link" class="scrolly"><span class="icon solid fa-th">Projects</span></a></li>
         						<li><a href="#about" id="about-link" class="scrolly"><span class="icon solid fa-user">About Me</span></a></li>
         						<li><a href="#contact" id="contact-link" class="scrolly"><span class="icon solid fa-envelope">Contact</span></a></li>
@@ -893,6 +894,35 @@ a:hover { color: #2F4A32; }
 	</div>
 </section>
 
+<!-- AI PROJECTS SECTION -->
+<section id="ai-projects" class="two">
+	<div class="container">
+	<header>
+		<h2>AI Projects</h2>
+		<p>Hands-on builds across LLM tooling, agentic pipelines, and edge AI.</p>
+	</header>
+
+	<div class="color-block-list rail-wrap">
+		<div class="color-block cb-matcha" onclick="openModal('modal-menu-intelligence')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Menu Intelligence — LLM + RAG Competitive Analysis Tool</p><p class="color-block-desc">Claude API, RAG, Python</p></div>
+		</div>
+		<div class="color-block cb-forest" onclick="openModal('modal-mcp-weather')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">MCP-Powered Weather Tool — Real-Time LLM Tool Integration</p><p class="color-block-desc">Model Context Protocol, Python</p></div>
+		</div>
+		<div class="color-block cb-moss" onclick="openModal('modal-career-ops')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">Career Ops AI Agent — Autonomous Job Intelligence Pipeline</p><p class="color-block-desc">Autonomous Agent, Python</p></div>
+		</div>
+		<div class="color-block cb-matcha" onclick="openModal('modal-rps-esp32')">
+			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<div><p class="color-block-title">RPS-ESP32-CNN — End-to-End Edge AI Deployment</p><p class="color-block-desc">TensorFlow/Keras, ESP32, CNN</p></div>
+		</div>
+	</div>
+	</div>
+</section>
+
 <div class="stat-break">
 	<p class="stat-number">2nd place</p>
 	<p class="stat-caption">Multi-university Product Management Hackathon</p>
@@ -944,22 +974,6 @@ a:hover { color: #2F4A32; }
 		<div class="item filter-item ops-sys color-block cb-moss" onclick="openModal('modal-vit')">
 			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
 			<div><p class="color-block-title">VIT Socials: Prayatnam</p><p class="color-block-desc">Operations &amp; Systems</p></div>
-		</div>
-		<div class="item filter-item ops-sys color-block cb-matcha" onclick="openModal('modal-career-ops')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Career Ops AI Agent</p><p class="color-block-desc">Operations &amp; Systems</p></div>
-		</div>
-		<div class="item filter-item data-prod color-block cb-forest" onclick="openModal('modal-menu-intelligence')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Menu Intelligence</p><p class="color-block-desc">Data &amp; Product</p></div>
-		</div>
-		<div class="item filter-item ops-sys color-block cb-moss" onclick="openModal('modal-mcp-weather')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">MCP Weather Tool</p><p class="color-block-desc">Operations &amp; Systems</p></div>
-		</div>
-		<div class="item filter-item data-prod color-block cb-matcha" onclick="openModal('modal-rps-esp32')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">RPS-ESP32-CNN</p><p class="color-block-desc">Data &amp; Product</p></div>
 		</div>
 	</div>
 	</div>
@@ -1658,23 +1672,22 @@ document.addEventListener("DOMContentLoaded", function () {
 		<div class="modal-content">
 			<span class="close-modal" onclick="closeModal('modal-career-ops')">&times;</span>
 
-			<h2>Career Ops AI Agent &mdash; Autonomous Job Search Automation</h2>
+			<h2>Career Ops AI Agent — Autonomous Job Intelligence Pipeline</h2>
 
 			<h4>SITUATION</h4>
-			<p>Tracking new job openings across 100+ target companies on Greenhouse and Lever career pages required constantly revisiting each company's careers page by hand &mdash; a manual process that doesn't scale and is easy to fall behind on.</p>
+
+			<p>Monitoring 100+ companies for relevant job postings manually was time-intensive and high signal-loss — unsustainable at scale.</p>
 
 			<h4>ACTION</h4>
 			<ul>
-				<li><strong>API Scraper:</strong> Built a Python scraper that queries the Greenhouse and Lever job board APIs directly for 100+ companies, rather than scraping rendered HTML, for reliable structured data.</li>
-				<li><strong>Self-Healing Auditor:</strong> Added an auditor component that detects when a company's API schema or endpoint changes or breaks, flags the issue, and adapts automatically without manual patching.</li>
-				<li><strong>Scheduled Dispatcher:</strong> Wired the pipeline to a scheduler that runs automatically end-to-end and delivers new or updated postings on a recurring basis.</li>
+				<li><strong>API Scraper:</strong> Built a Python scraper across Greenhouse and Lever ATSs to pull structured job data directly from each company's applicant tracking system.</li>
+				<li><strong>Self-Healing Auditor:</strong> A self-contained module that auto-detects each company's ATS and updates coverage without human input when a schema or endpoint changes.</li>
+				<li><strong>Scheduled Dispatcher:</strong> A system-scheduled component that runs the full pipeline twice daily and delivers a curated email digest.</li>
 			</ul>
 
 			<h4>RESULT</h4>
-			<ul>
-				<li><strong>Zero Manual Intervention:</strong> The full pipeline runs unattended end-to-end, from scraping through delivery.</li>
-				<li><strong>Scale:</strong> Continuously tracks job postings across 100+ companies.</li>
-			</ul>
+
+			<p>Eliminated all manual intervention — zero human triggers required. The system self-corrects its own data layer, maintains 100% ATS coverage, and delivers fit-filtered opportunities on a fully automated cadence.</p>
 
 			<h4>KEY TECHNOLOGIES</h4>
 			<p>Python, Greenhouse API, Lever API, Task Scheduling</p>
@@ -1690,25 +1703,22 @@ document.addEventListener("DOMContentLoaded", function () {
 		<div class="modal-content">
 			<span class="close-modal" onclick="closeModal('modal-menu-intelligence')">&times;</span>
 
-			<h2>Menu Intelligence &mdash; LLM + RAG Competitive Analysis Pipeline</h2>
+			<h2>Menu Intelligence — LLM + RAG Competitive Analysis Tool</h2>
 
 			<h4>SITUATION</h4>
-			<p>Competitive menu and pricing analysis against restaurant competitors traditionally takes days of manual research spent gathering, organizing, and comparing menu data by hand.</p>
+
+			<p>Restaurant operators and investors had no scalable way to identify menu gaps and emerging food trends without expensive manual research.</p>
 
 			<h4>ACTION</h4>
-			<ul>
-				<li>Designed a Retrieval-Augmented Generation (RAG) pipeline in Python using the Claude API that ingests competitor menu data and builds a retrievable knowledge base.</li>
-				<li>Built a retrieval layer that pulls the most relevant competitor context for a given question, then passes it to Claude to synthesize a structured competitive analysis.</li>
-				<li>Exposed the pipeline as a single natural-language query interface, so a full competitive breakdown can be requested on demand.</li>
-			</ul>
+
+			<p>Built a 4-stage automated pipeline in Python — competitor menu scraping, LLM-based dish tagging, dual-method analysis (direct LLM querying + RAG-based retrieval), and auto-generated structured reporting. Used the Claude API, vector-based retrieval, and Python end-to-end.</p>
 
 			<h4>RESULT</h4>
-			<ul>
-				<li><strong>Speed:</strong> Compressed a multi-day manual research process into a single query, delivering competitive analysis in minutes.</li>
-			</ul>
+
+			<p>Compressed a multi-day manual research process into a single query-driven workflow, delivering a competitive intelligence report usable by both investors and restaurant operators.</p>
 
 			<h4>KEY TECHNOLOGIES</h4>
-			<p>Claude API, Python, RAG</p>
+			<p>Claude API, RAG (Retrieval-Augmented Generation), Python</p>
 
 			<div style="text-align:center; margin-top:2em;">
 				<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-menu-intelligence')">Close Project</a>
@@ -1721,21 +1731,19 @@ document.addEventListener("DOMContentLoaded", function () {
 		<div class="modal-content">
 			<span class="close-modal" onclick="closeModal('modal-mcp-weather')">&times;</span>
 
-			<h2>MCP Weather Tool &mdash; Live Weather Data for LLM Assistants</h2>
+			<h2>MCP-Powered Weather Tool — Real-Time LLM Tool Integration</h2>
 
 			<h4>SITUATION</h4>
-			<p>LLM assistants need reliable access to real-time, authoritative weather data. The National Weather Service (NWS) publishes a free public API, but it wasn't accessible to an LLM assistant as a callable tool out of the box.</p>
+
+			<p>LLMs have no native access to live external data, limiting their usefulness for real-world, time-sensitive queries.</p>
 
 			<h4>ACTION</h4>
-			<ul>
-				<li>Built a custom Model Context Protocol (MCP) server in Python that wraps the NWS API.</li>
-				<li>Exposed tools for live forecasts and active weather alerts that any MCP-compatible LLM assistant can call directly.</li>
-			</ul>
+
+			<p>Designed and deployed a custom MCP (Model Context Protocol) server in Python, integrating the US National Weather Service API via a two-step call pattern — grid identification followed by multi-day forecast retrieval — exposed as a live tool callable mid-conversation.</p>
 
 			<h4>RESULT</h4>
-			<ul>
-				<li>Gives any connected LLM assistant live, authoritative U.S. weather forecasts and alerts through a clean, reusable tool interface.</li>
-			</ul>
+
+			<p>Delivered a production-grade pattern for extending LLM assistants with real-time external data, demonstrating hands-on proficiency in the emerging MCP standard for agentic AI architectures.</p>
 
 			<h4>KEY TECHNOLOGIES</h4>
 			<p>Python, MCP (Model Context Protocol), National Weather Service API</p>
@@ -1751,22 +1759,19 @@ document.addEventListener("DOMContentLoaded", function () {
 		<div class="modal-content">
 			<span class="close-modal" onclick="closeModal('modal-rps-esp32')">&times;</span>
 
-			<h2>RPS-ESP32-CNN &mdash; Edge AI Rock-Paper-Scissors Classifier</h2>
+			<h2>RPS-ESP32-CNN — End-to-End Edge AI Deployment</h2>
 
 			<h4>SITUATION</h4>
-			<p>Wanted to explore a complete edge-AI pipeline, from raw data collection to real-time on-device inference, using a rock-paper-scissors hand-gesture classifier as the test case.</p>
+
+			<p>Real-time ML inference on embedded hardware requires solving data collection, model optimization, and low-latency streaming as one unified system — not just training a model in isolation.</p>
 
 			<h4>ACTION</h4>
-			<ul>
-				<li>Collected and labeled image data for the three hand-gesture classes.</li>
-				<li>Trained a convolutional neural network (CNN) in TensorFlow/Keras on the labeled dataset.</li>
-				<li>Converted the trained model for embedded deployment and ran real-time on-device inference on an ESP32 running MicroPython.</li>
-			</ul>
+
+			<p>Owned the full pipeline: collected custom training data directly from the ESP32-CAM, preprocessed images, trained and optimized a CNN using TensorFlow/Keras for edge deployment, then built a MicroPython HTTP streaming server on-device feeding a real-time classifier over WiFi on the laptop side.</p>
 
 			<h4>RESULT</h4>
-			<ul>
-				<li>Delivered a working end-to-end edge AI system, from raw data collection to real-time gesture classification running directly on low-power embedded hardware.</li>
-			</ul>
+
+			<p>Deployed a fully functional edge AI system from raw hardware to live inference — demonstrating end-to-end ML ownership across data collection, model training, optimization, and embedded deployment.</p>
 
 			<h4>KEY TECHNOLOGIES</h4>
 			<p>TensorFlow/Keras, Python, ESP32, MicroPython, CNN</p>
