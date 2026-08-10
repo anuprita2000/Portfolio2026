@@ -779,6 +779,16 @@ a:hover { color: #2F4A32; }
 			.timeline-degree.matcha { color: #4d7a2a; } .timeline-degree.forest { color: #2F4A32; }
 			.nc-card, .timeline-content { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
 			.nc-card.in-view, .timeline-content.in-view { opacity: 1; transform: translateY(0); }
+
+
+			/* Writing list (title-as-link style) */
+			.writing-list { max-width: 700px; margin: 0 auto; }
+			.writing-item { padding: 16px 4px; border-bottom: 1px solid #e6ddc8; opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+			.writing-item:last-child { border-bottom: none; }
+			.writing-item.in-view { opacity: 1; transform: translateY(0); }
+			.writing-title-link { font-family: Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: bold; color: #2c2c28; text-decoration: none; }
+			.writing-title-link:hover { color: #2F4A32; text-decoration: underline; }
+			.writing-tags { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; color: #79715c; margin: 6px 0 0; }
 </style>
 	</head>
 
@@ -983,24 +993,21 @@ a:hover { color: #2F4A32; }
 		<p>Essays on technology, strategy, and leadership.</p>
 	</header>
 
-	<div class="nc-grid">
-		<a class="nc-card" href="https://medium.com/@anuprita.kaple18" target="_blank" rel="noopener noreferrer">
-			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Screaming into the Algorithm</p>
-			<p class="nc-role matcha">Technology · Work · Human Behavior</p>
-		</a>
-		<a class="nc-card" href="https://medium.com/@anuprita.kaple18" target="_blank" rel="noopener noreferrer">
-			<div class="nc-icon forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Creating Demand and Seeking Truth</p>
-			<p class="nc-role forest">Strategy · Consumers · Decision-Making</p>
-		</a>
-		<a class="nc-card" href="https://medium.com/@anuprita.kaple18" target="_blank" rel="noopener noreferrer">
-			<div class="nc-icon moss"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Searching for the Outliers</p>
-			<p class="nc-role moss">Leadership · Character · Organizations</p>
-		</a>
+	<div class="writing-list">
+		<div class="writing-item">
+			<a class="writing-title-link" href="https://medium.com/@anuprita.kaple18/screaming-into-the-algorithm-the-fight-to-be-seen-a2872c52cad0" target="_blank" rel="noopener noreferrer">Screaming into the Algorithm</a>
+			<p class="writing-tags">Technology · Work · Human Behavior</p>
+		</div>
+		<div class="writing-item">
+			<a class="writing-title-link" href="https://medium.com/@anuprita.kaple18/creating-demand-and-seeking-truth-day-one-at-spmi-immersion-3da556b44e76" target="_blank" rel="noopener noreferrer">Creating Demand and Seeking Truth</a>
+			<p class="writing-tags">Strategy · Consumers · Decision-Making</p>
+		</div>
+		<div class="writing-item">
+			<a class="writing-title-link" href="https://medium.com/@anuprita.kaple18/searching-for-the-outliers-0c9e364c8bb2" target="_blank" rel="noopener noreferrer">Searching for the Outliers</a>
+			<p class="writing-tags">Leadership · Character · Organizations</p>
+		</div>
 	</div>
-	<p style="text-align:center; margin-top:24px;"><a href="https://medium.com/@anuprita.kaple18" target="_blank" rel="noopener noreferrer" style="font-family:Helvetica,Arial,sans-serif; font-size:13px; font-weight:600; color:#2F4A32; text-decoration:none;">View all writing on Medium →</a></p>
+	<p style="text-align:center; margin-top:20px;"><a href="https://medium.com/@anuprita.kaple18" target="_blank" rel="noopener noreferrer" style="font-family:Helvetica,Arial,sans-serif; font-size:13px; font-weight:600; color:#2F4A32; text-decoration:none;">View all writing on Medium →</a></p>
 	</div>
 </section>
 
@@ -1201,7 +1208,7 @@ a:hover { color: #2F4A32; }
             });
 			
 document.addEventListener("DOMContentLoaded", function () {
-	var blocks = document.querySelectorAll('.color-block-list .color-block, .color-block-list .item.color-block, .nc-grid .nc-card, .timeline-list .timeline-content');
+	var blocks = document.querySelectorAll('.color-block-list .color-block, .color-block-list .item.color-block, .nc-grid .nc-card, .timeline-list .timeline-content, .writing-list .writing-item');
 	if ('IntersectionObserver' in window) {
 		var io = new IntersectionObserver(function(entries) {
 			entries.forEach(function(entry) {
