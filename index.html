@@ -754,6 +754,31 @@ a:hover { color: #2F4A32; }
   transform: translateY(0);
 }
 
+
+
+			/* Neutral card grid + timeline system */
+			.nc-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+			.nc-card { background: #FFFDF7; border: 1px solid #e6ddc8; border-radius: 12px; padding: 18px; box-shadow: 0 2px 8px rgba(47,74,50,0.06); cursor: pointer; text-decoration: none; display: block; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+			.nc-card:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(47,74,50,0.12); }
+			.nc-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; color: #fff; }
+			.nc-icon svg { width: 16px; height: 16px; }
+			.nc-icon.matcha { background: #8FBF4D; } .nc-icon.forest { background: #2F4A32; } .nc-icon.moss { background: #567A3A; }
+			.nc-title { font-family: Georgia, 'Times New Roman', serif; font-size: 15px; font-weight: bold; color: #2c2c28; margin: 0 0 6px; }
+			.nc-role { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; font-weight: 600; margin: 0; }
+			.nc-role.matcha { color: #4d7a2a; } .nc-role.forest { color: #2F4A32; } .nc-role.moss { color: #567A3A; }
+			.nc-desc { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; color: #79715c; margin: 8px 0 0; line-height: 1.5; }
+			.timeline-list { max-width: 700px; margin: 0 auto; }
+			.timeline-row { display: grid; grid-template-columns: 130px 16px 1fr; gap: 18px; padding: 14px 0; position: relative; }
+			.timeline-row:not(:last-child)::after { content: ""; position: absolute; left: 136px; top: 34px; bottom: -14px; width: 2px; background: #ddd2b3; }
+			.timeline-date { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; color: #8a7a4f; text-align: right; line-height: 1.5; padding-top: 2px; }
+			.timeline-dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 4px; position: relative; z-index: 1; }
+			.timeline-dot.matcha { background: #8FBF4D; } .timeline-dot.forest { background: #2F4A32; } .timeline-dot.moss { background: #567A3A; }
+			.timeline-content { cursor: pointer; }
+			.timeline-institution { font-family: Georgia, 'Times New Roman', serif; font-size: 16px; font-weight: bold; color: #2c2c28; margin: 0 0 4px; }
+			.timeline-degree { font-family: Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: 600; margin: 0; }
+			.timeline-degree.matcha { color: #4d7a2a; } .timeline-degree.forest { color: #2F4A32; }
+			.nc-card, .timeline-content { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+			.nc-card.in-view, .timeline-content.in-view { opacity: 1; transform: translateY(0); }
 </style>
 	</head>
 
@@ -866,22 +891,26 @@ a:hover { color: #2F4A32; }
 		<p>Hands-on builds across LLM tooling, agentic pipelines, and edge AI.</p>
 	</header>
 
-	<div class="color-block-list rail-wrap">
-		<div class="color-block cb-matcha" onclick="openModal('modal-menu-intelligence')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Menu Intelligence — LLM + RAG Competitive Analysis Tool</p><p class="color-block-desc">Claude API, RAG, Python</p></div>
+	<div class="nc-grid">
+		<div class="nc-card" onclick="openModal('modal-menu-intelligence')">
+			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<p class="nc-title">Menu Intelligence — LLM + RAG Competitive Analysis Tool</p>
+			<p class="nc-role matcha">Claude API, RAG, Python</p>
 		</div>
-		<div class="color-block cb-forest" onclick="openModal('modal-mcp-weather')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">MCP-Powered Weather Tool — Real-Time LLM Tool Integration</p><p class="color-block-desc">Model Context Protocol, Python</p></div>
+		<div class="nc-card" onclick="openModal('modal-mcp-weather')">
+			<div class="nc-icon forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<p class="nc-title">MCP-Powered Weather Tool — Real-Time LLM Tool Integration</p>
+			<p class="nc-role forest">Model Context Protocol, Python</p>
 		</div>
-		<div class="color-block cb-moss" onclick="openModal('modal-career-ops')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Career Ops AI Agent — Autonomous Job Intelligence Pipeline</p><p class="color-block-desc">Autonomous Agent, Python</p></div>
+		<div class="nc-card" onclick="openModal('modal-career-ops')">
+			<div class="nc-icon moss"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<p class="nc-title">Career Ops AI Agent — Autonomous Job Intelligence Pipeline</p>
+			<p class="nc-role moss">Autonomous Agent, Python</p>
 		</div>
-		<div class="color-block cb-matcha" onclick="openModal('modal-rps-esp32')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">RPS-ESP32-CNN — End-to-End Edge AI Deployment</p><p class="color-block-desc">TensorFlow/Keras, ESP32, CNN</p></div>
+		<div class="nc-card" onclick="openModal('modal-rps-esp32')">
+			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<p class="nc-title">RPS-ESP32-CNN — End-to-End Edge AI Deployment</p>
+			<p class="nc-role matcha">TensorFlow/Keras, ESP32, CNN</p>
 		</div>
 	</div>
 	</div>
@@ -911,28 +940,32 @@ a:hover { color: #2F4A32; }
 		</ul>
 	</header>
 
-	<div class="color-block-list rail-wrap">
-		<div class="item filter-item data-prod color-block cb-matcha" onclick="openModal('modal-marketbasket')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Market Basket Analysis using R &amp; Python</p><p class="color-block-desc">Data &amp; Product</p></div>
+	<div class="nc-grid">
+		<div class="item filter-item data-prod nc-card" onclick="openModal('modal-marketbasket')">
+			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<p class="nc-title">Market Basket Analysis using R &amp; Python</p>
+			<p class="nc-role matcha">Data &amp; Product</p>
 		</div>
-		<div class="item filter-item ops-sys color-block cb-forest" onclick="openModal('modal-bigred')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Program Management, Big Red Bites</p><p class="color-block-desc">Operations &amp; Systems</p></div>
+		<div class="item filter-item ops-sys nc-card" onclick="openModal('modal-bigred')">
+			<div class="nc-icon forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<p class="nc-title">Program Management, Big Red Bites</p>
+			<p class="nc-role forest">Operations &amp; Systems</p>
 		</div>
-		<div class="item filter-item data-prod color-block cb-moss" onclick="openModal('modal-plant')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Market Entry Strategy of a Plant-based Snack</p><p class="color-block-desc">Data &amp; Product</p></div>
+		<div class="item filter-item data-prod nc-card" onclick="openModal('modal-plant')">
+			<div class="nc-icon moss"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<p class="nc-title">Market Entry Strategy of a Plant-based Snack</p>
+			<p class="nc-role moss">Data &amp; Product</p>
 		</div>
-		<div class="item filter-item ops-sys color-block cb-matcha" onclick="openModal('modal-crdf')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Robotic Arm, CRDF</p><p class="color-block-desc">Operations &amp; Systems</p></div>
+		<div class="item filter-item ops-sys nc-card" onclick="openModal('modal-crdf')">
+			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<p class="nc-title">Robotic Arm, CRDF</p>
+			<p class="nc-role matcha">Operations &amp; Systems</p>
 		</div>
-		<div class="item filter-item data-prod color-block cb-forest" onclick="openModal('modal-drivebuddy')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Business &amp; Technology, DrivebuddyAI</p><p class="color-block-desc">Data &amp; Product</p></div>
+		<div class="item filter-item data-prod nc-card" onclick="openModal('modal-drivebuddy')">
+			<div class="nc-icon forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<p class="nc-title">Business &amp; Technology, DrivebuddyAI</p>
+			<p class="nc-role forest">Data &amp; Product</p>
 		</div>
-		
 	</div>
 	</div>
 </section>
@@ -972,14 +1005,22 @@ a:hover { color: #2F4A32; }
 		<p>Academic foundation across engineering, management, and applied analytics.</p>
 	</header>
 
-	<div class="color-block-list rail-wrap">
-		<div class="color-block cb-matcha" onclick="openModal('modal-edu-cornell')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Cornell University — Master of Engineering in Engineering Management</p><p class="color-block-desc">Ithaca, NY</p></div>
+	<div class="timeline-list">
+		<div class="timeline-row">
+			<div class="timeline-date">Aug 2025 – May 2026<br>Ithaca, NY</div>
+			<div class="timeline-dot matcha"></div>
+			<div class="timeline-content" onclick="openModal('modal-edu-cornell')">
+				<p class="timeline-institution">Cornell University</p>
+				<p class="timeline-degree matcha">M.Eng. in Engineering Management</p>
+			</div>
 		</div>
-		<div class="color-block cb-forest" onclick="openModal('modal-edu-vit')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Vishwakarma Institute of Technology — B.Tech, Mechanical Engineering</p><p class="color-block-desc">Pune, India</p></div>
+		<div class="timeline-row">
+			<div class="timeline-date">Aug 2018 – May 2022<br>Pune, India</div>
+			<div class="timeline-dot forest"></div>
+			<div class="timeline-content" onclick="openModal('modal-edu-vit')">
+				<p class="timeline-institution">Vishwakarma Institute of Technology</p>
+				<p class="timeline-degree forest">B.Tech, Mechanical Engineering</p>
+			</div>
 		</div>
 	</div>
 	</div>
@@ -994,10 +1035,12 @@ a:hover { color: #2F4A32; }
 		<p>Selected posts and articles. Click through to read the full post on LinkedIn.</p>
 	</header>
 
-	<div class="color-block-list rail-wrap">
-		<a class="color-block cb-matcha" href="https://www.linkedin.com/feed/update/urn:li:activity:7462626131335184384/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">India’s Digital Pull Revolution: How Kirana Stores Are Reshaping Global Retail</p><p class="color-block-desc">Cornell EMC² feature — &ldquo;What genuinely surprised me was the speed at which developing economies can adopt new technology when the right ecosystem is in place.&rdquo;</p></div>
+	<div class="nc-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 260px)); max-width: 500px; justify-content: center;">
+		<a class="nc-card" href="https://www.linkedin.com/feed/update/urn:li:activity:7462626131335184384/" target="_blank" rel="noopener noreferrer">
+			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+			<p class="nc-title">India’s Digital Pull Revolution: How Kirana Stores Are Reshaping Global Retail</p>
+			<p class="nc-role matcha">Cornell EMC² Feature</p>
+			<p class="nc-desc">Cornell EMC² feature — &ldquo;What genuinely surprised me was the speed at which developing economies can adopt new technology when the right ecosystem is in place.&rdquo;</p>
 		</a>
 	</div>
 	</div>
@@ -1121,7 +1164,7 @@ a:hover { color: #2F4A32; }
             });
 			
 document.addEventListener("DOMContentLoaded", function () {
-	var blocks = document.querySelectorAll('.color-block-list .color-block, .color-block-list .item.color-block');
+	var blocks = document.querySelectorAll('.color-block-list .color-block, .color-block-list .item.color-block, .nc-grid .nc-card, .timeline-list .timeline-content');
 	if ('IntersectionObserver' in window) {
 		var io = new IntersectionObserver(function(entries) {
 			entries.forEach(function(entry) {
