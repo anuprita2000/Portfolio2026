@@ -831,6 +831,19 @@ section h2 { font-size: 1.6em !important; }
   #header ul.icons { justify-content: flex-start !important; }
   #main, #footer { margin-left: 260px !important; }
 }
+
+/* Uniform font family everywhere */
+body, body * { font-family: "Source Sans Pro", sans-serif !important; }
+/* Re-center sidebar identity block */
+@media screen and (min-width: 981px) {
+  #header .top, #header .bottom { text-align: center !important; }
+  #header h1 { text-align: center !important; }
+  #header nav#nav ul { align-items: center !important; }
+  #header ul.icons { justify-content: center !important; }
+}
+/* Compact card titles (AI & Digital Builds, Selected Projects, Leadership) */
+.nc-title { font-size: 15px !important; line-height: 1.3 !important; }
+.nc-role { font-size: 11px !important; letter-spacing: 0.4px !important; }
 </style>
 	</head>
 
