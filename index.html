@@ -848,6 +848,15 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 /* Fix specificity: #main p was beating .nc-title/.nc-role */
 #main .nc-title { font-size: 15px !important; }
 #main .nc-role { font-size: 11px !important; }
+
+/* Item 2: nav text size matches subtitle */
+@media screen and (min-width: 981px) {
+  #header nav#nav a { font-size: 13.6px !important; }
+}
+/* Item 5: align Experience card location under title */
+#experience .color-block-desc { text-align: left !important; font-size: 14px !important; }
+/* Item 6: match Selected Projects card height to AI Builds cards */
+#portfolio .nc-card.item { height: auto !important; }
 </style>
 	</head>
 
@@ -862,7 +871,7 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 							<span class="image avatar64"><img src="images/avatar.jpg" alt="" /></span>
 							<h1 id="title">Anuprita Kaple</h1>
 							<p>Product, Strategy, Operations </p>
-				<p>Building scalable, AI-enabled systems and translating complex problems into outcomes.</p>
+				
 					</div>
 
 					<!-- Nav -->
@@ -913,7 +922,7 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
     
     						<!-- NEW RESUME BUTTON -->
     						<!-- Replace 'resume.pdf' with the actual name of your file -->
-    						<a href="assets/resume.pdf" target="_blank" class="button icon solid fa-download resume-btn" style="margin-left: 10px;">Download Resume</a>
+    						<a href="assets/resume.pdf?v=2" target="_blank" class="button icon solid fa-download resume-btn" style="margin-left: 10px;">Download Resume</a>
 							</footer>
 						</div>
 					</section>
