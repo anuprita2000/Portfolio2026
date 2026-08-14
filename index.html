@@ -345,6 +345,9 @@ a:hover { color: #2F4A32; }
     transition: transform 0.2s ease;
     border: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-size: 0.75em !important;
+    padding: 0.65em 1.4em !important;
+    min-width: 0 !important;
 }
 
 .button.scrolly:hover, .button.icon:hover, .button.resume-btn:hover {
@@ -653,39 +656,51 @@ a:hover { color: #2F4A32; }
   background-color: #FAF7F2 !important;
 }
 .color-block-list {
-  max-width: 800px;
+  max-width: 1080px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 5px;
 }
 .color-block {
-  padding: 22px;
+  padding: 8px 20px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
   cursor: pointer;
+  text-align: left;
 }
+.color-block > div { flex: 1; min-width: 0; text-align: left; }
 .color-block-photo {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
+  flex: 0 0 33%;
+  height: 28px;
   background: rgba(255,255,255,0.25);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.color-block-photo svg { width: 20px; height: 20px; }
+.color-block-photo svg { width: 15px; height: 15px; }
+.color-block-photo.logo { background: #ffffff; padding: 4px 6px; }
+.color-block-photo.logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .color-block-title {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 17px;
+  font-size: 12.5px;
   font-weight: bold;
-  margin: 0 0 4px;
+  margin: 0;
+  line-height: 1.25;
+}
+.color-block-role {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.25;
 }
 .color-block-desc {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 11.5px;
+  font-size: 10.5px;
   margin: 0;
+  line-height: 1.25;
 }
 .cb-matcha { background: #8FBF4D; }
 .cb-matcha .color-block-title { color: #1F3320; }
@@ -757,7 +772,7 @@ a:hover { color: #2F4A32; }
 
 
 			/* Neutral card grid + timeline system */
-			.nc-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+			.nc-grid { max-width: 1150px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
 			.nc-card { background: #FFFDF7; border: 1px solid #e6ddc8; border-radius: 12px; padding: 18px; box-shadow: 0 2px 8px rgba(47,74,50,0.06); cursor: pointer; text-decoration: none; display: block; transition: transform 0.25s ease, box-shadow 0.25s ease; }
 			.nc-card:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(47,74,50,0.12); }
 			.nc-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; color: #fff; }
@@ -767,7 +782,30 @@ a:hover { color: #2F4A32; }
 			.nc-role { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; font-weight: 600; margin: 0; }
 			.nc-role.matcha { color: #4d7a2a; } .nc-role.forest { color: #2F4A32; } .nc-role.moss { color: #567A3A; }
 			.nc-desc { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; color: #79715c; margin: 8px 0 0; line-height: 1.5; }
-			.timeline-list { max-width: 700px; margin: 0 auto; }
+
+			/* AI & Digital Builds: detailed project cards (square, 2x2, wide) */
+			#ai-projects .nc-grid { max-width: 1040px; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+			#ai-projects .nc-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; aspect-ratio: 1 / 1; }
+			.ai-card-visual { flex: 0 0 34%; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+			.ai-card-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+			.ai-card-visual svg { width: 36px; height: 36px; color: #fff; opacity: 0.9; }
+			.ai-card-visual.matcha { background: linear-gradient(135deg, #8FBF4D, #5c8a34); }
+			.ai-card-visual.forest { background: linear-gradient(135deg, #45664a, #1F3320); }
+			.ai-card-visual.moss { background: linear-gradient(135deg, #6c9048, #3f5c29); }
+			.ai-card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; min-height: 0; }
+			@media screen and (max-width: 600px) {
+				#ai-projects .nc-grid { grid-template-columns: 1fr; }
+				#ai-projects .nc-card { aspect-ratio: auto; }
+			}
+			.ai-card-title { font-family: Georgia, 'Times New Roman', serif; font-size: 14px; font-weight: bold; color: #2c2c28; margin: 0; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+			.ai-card-subtitle { font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: 600; margin: 3px 0 0; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+			.ai-card-subtitle.matcha { color: #4d7a2a; } .ai-card-subtitle.forest { color: #2F4A32; } .ai-card-subtitle.moss { color: #567A3A; }
+			.ai-card-desc { font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; color: #5c5c54; line-height: 1.45; margin: 8px 0 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+			.ai-card-proof { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 600; color: #C17A54; letter-spacing: 0.1px; line-height: 1.3; margin: 8px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+			.ai-card-tech { font-family: Helvetica, Arial, sans-serif; font-size: 9.5px; color: #8a7a4f; letter-spacing: 0.15px; margin: 4px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+			.ai-card-cta { font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: 700; margin-top: auto; padding-top: 8px; }
+			.ai-card-cta.matcha { color: #4d7a2a; } .ai-card-cta.forest { color: #2F4A32; } .ai-card-cta.moss { color: #567A3A; }
+			.timeline-list { max-width: 900px; margin: 0 auto; }
 			.timeline-row { display: grid; grid-template-columns: 130px 16px 1fr; gap: 18px; padding: 14px 0; position: relative; }
 			.timeline-row:not(:last-child)::after { content: ""; position: absolute; left: 136px; top: 34px; bottom: -14px; width: 2px; background: #ddd2b3; }
 			.timeline-date { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; color: #8a7a4f; text-align: right; line-height: 1.5; padding-top: 2px; }
@@ -782,7 +820,7 @@ a:hover { color: #2F4A32; }
 
 
 			/* Writing list (title-as-link style) */
-			.writing-list { max-width: 700px; margin: 0 auto; }
+			.writing-list { max-width: 900px; margin: 0 auto; }
 			.writing-item { padding: 16px 4px; border-bottom: 1px solid #e6ddc8; opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
 			.writing-item:last-child { border-bottom: none; }
 			.writing-item.in-view { opacity: 1; transform: translateY(0); }
@@ -797,6 +835,9 @@ a:hover { color: #2F4A32; }
 }
 #experience .cb-matcha .color-block-title, #experience .cb-forest .color-block-title, #experience .cb-moss .color-block-title {
   color: #2C2C28 !important;
+}
+#experience .cb-matcha .color-block-role, #experience .cb-forest .color-block-role, #experience .cb-moss .color-block-role {
+  color: #5c5c54 !important;
 }
 #experience .cb-matcha .color-block-desc, #experience .cb-forest .color-block-desc, #experience .cb-moss .color-block-desc {
   color: #C17A54 !important;
@@ -814,7 +855,7 @@ section h2 { font-size: 1.6em !important; }
   #header {
     position: fixed !important;
     top: 0 !important; left: 0 !important;
-    width: 260px !important;
+    width: 285px !important;
     height: 100vh !important;
     overflow-y: auto;
     display: flex !important;
@@ -829,7 +870,7 @@ section h2 { font-size: 1.6em !important; }
   #header nav#nav ul li { margin: 0 !important; padding: 0 !important; border: none !important; }
   #header nav#nav a { font-size: 12.5px !important; padding: 2px 0 !important; }
   #header ul.icons { justify-content: flex-start !important; }
-  #main, #footer { margin-left: 260px !important; }
+  #main, #footer { margin-left: 285px !important; }
 }
 
 /* Uniform font family everywhere */
@@ -854,44 +895,56 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
   #header nav#nav a { font-size: 13.6px !important; }
 }
 /* Item 5: align Experience card location under title */
-#experience .color-block-desc { text-align: left !important; font-size: 14px !important; }
+#experience .color-block-title, #experience .color-block-role, #experience .color-block-desc { text-align: left !important; }
+#experience .color-block-desc { font-size: 10.5px !important; }
 /* Item 6: match Selected Projects card height to AI Builds cards */
 #portfolio .nc-card.item { height: auto !important; }
 
 /* Item 4: bigger nav text, name stays on one line */
 @media screen and (min-width: 981px) {
-  #header nav#nav a { font-size: 15px !important; }
   #header h1 { white-space: nowrap !important; }
 }
 
-/* Hero credential chips */
+/* Bigger, more readable nav labels for first-time visitors */
+@media screen and (min-width: 981px) {
+  #header nav#nav ul { gap: 14px !important; }
+  #header nav#nav a { font-size: 21px !important; letter-spacing: 0.2px; padding: 4px 0 !important; }
+}
+
+/* Hero credential chips: two-line stat cards */
 .hero-chips {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 0 0 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  max-width: 760px;
+  margin: 0 auto 1.75rem;
   padding: 0;
 }
 .hero-chips li {
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.35);
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-  white-space: nowrap;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-top: 3px solid #C17A54;
+  border-radius: 6px;
+  padding: 14px 16px;
+  text-align: left;
+  white-space: normal;
 }
-
-/* redeploy trigger */
-
-/* Bigger, bolder hero chips */
-.hero-chips li { font-size: 15px !important; }
-.hero-chips li strong { font-weight: 700; }
-
-/* Square chips, bigger font */
-.hero-chips li { border-radius: 0 !important; font-size: 18px !important; }
+.hero-chips .chip-num {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+.hero-chips .chip-desc {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.4;
+}
 </style>
 	</head>
 
@@ -952,11 +1005,12 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 <p>From delivering EV prototypes in Saudi Arabia to transforming capacity planning across 63 global plants, I’ve worked where people, processes, and technology intersect. I combine analytical thinking, technology, and cross-functional leadership to turn ideas into solutions that work in the real world.</p>
 							</header>
 <ul class="hero-chips">
-<li><strong>3+</strong> Years of Full-Time Experience</li>
-<li>Cornell Master's in Engineering Management</li>
-<li><strong>$6M+</strong> in Savings Delivered</li>
-<li><strong>63</strong> EVs in <strong>80</strong> Days, Zero Delays</li>
-<li><strong>1,800</strong> Machines, <strong>63</strong> Plants Digitized</li>
+<li><span class="chip-num">$6M+</span><span class="chip-desc">Projected savings through digital transformation</span></li>
+<li><span class="chip-num">1,800 Assets · 63 Plants</span><span class="chip-desc">Digital transformation globally</span></li>
+<li><span class="chip-num">63 EVs · 80 Days</span><span class="chip-desc">Zero-delay prototype delivery in Saudi Arabia</span></li>
+<li><span class="chip-num">3+ Years</span><span class="chip-desc">Work experience</span></li>
+<li><span class="chip-num">Cornell MEM</span><span class="chip-desc">Master's in Engineering Management</span></li>
+<li><span class="chip-num">EMC² Fellow</span><span class="chip-desc">Cañizares Center for Emerging Markets, Cornell SC Johnson Business School</span></li>
 </ul>
 
 
@@ -981,24 +1035,24 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 
 	<div class="color-block-list rail-wrap">
 		<div class="color-block cb-forest" onclick="openModal('modal-nestle-immersion')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">Nestlé USA — Strategic Product & Marketing Immersion</p><p class="color-block-desc">Ithaca, NY</p></div>
+			<div class="color-block-photo logo"><img src="images/nestle.jpg" alt="Nestlé logo" loading="lazy"></div>
+			<div><p class="color-block-title">Nestlé USA · SC Johnson Immersion</p><p class="color-block-role">Graduate Consultant</p><p class="color-block-desc">Ithaca, NY</p></div>
 		</div>
 		<div class="color-block cb-matcha" onclick="openModal('modal-ceer')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">FORVIA &mdash; CEER: EV Prototype Build</p><p class="color-block-desc">Riyadh, Saudi Arabia</p></div>
+			<div class="color-block-photo logo"><img src="images/forvia.jpg" alt="FORVIA logo" loading="lazy"></div>
+			<div><p class="color-block-title">FORVIA · CEER EV Program</p><p class="color-block-role">Senior Program Development Engineer</p><p class="color-block-desc">Riyadh, Saudi Arabia</p></div>
 		</div>
 		<div class="color-block cb-forest" onclick="openModal('modal-forvia-ops')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">FORVIA: Global Business Operations</p><p class="color-block-desc">Pune, India</p></div>
+			<div class="color-block-photo logo"><img src="images/forvia.jpg" alt="FORVIA logo" loading="lazy"></div>
+			<div><p class="color-block-title">FORVIA · Digital Transformation</p><p class="color-block-role">Senior Industrial Development Engineer</p><p class="color-block-desc">Pune, India</p></div>
 		</div>
 		<div class="color-block cb-moss" onclick="openModal('modal-forvia-dd')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">FORVIA: Design &amp; Development Engineer</p><p class="color-block-desc">Pune, India</p></div>
+			<div class="color-block-photo logo"><img src="images/forvia.jpg" alt="FORVIA logo" loading="lazy"></div>
+			<div><p class="color-block-title">FORVIA · Stellantis &amp; Renault</p><p class="color-block-role">Design &amp; Development Engineer</p><p class="color-block-desc">Pune, India</p></div>
 		</div>
 		<div class="color-block cb-matcha" onclick="openModal('modal-lt')">
-			<div class="color-block-photo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<div><p class="color-block-title">L&amp;T Heavy Engineering: Program Planning &amp; Execution Intern</p><p class="color-block-desc">Surat, India</p></div>
+			<div class="color-block-photo logo"><img src="images/L%26T.jpg" alt="Larsen & Toubro logo" loading="lazy"></div>
+			<div><p class="color-block-title">Larsen &amp; Toubro · Heavy Engineering</p><p class="color-block-role">Project Planning &amp; Execution Intern</p><p class="color-block-desc">Surat, India</p></div>
 		</div>
 	</div>
 	</div>
@@ -1017,25 +1071,49 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 	</header>
 
 	<div class="nc-grid">
-		<div class="nc-card" onclick="openModal('modal-menu-intelligence')">
-			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Menu Intelligence — LLM + RAG Competitive Analysis Tool</p>
-			<p class="nc-role matcha">Claude API, RAG, Python</p>
+		<div class="nc-card ai-card" onclick="openModal('modal-menu-intelligence')">
+			<div class="ai-card-visual matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V10M12 20V4M20 20v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+			<div class="ai-card-body">
+				<p class="ai-card-title">Menu Intelligence</p>
+				<p class="ai-card-subtitle matcha">AI-powered competitive intelligence</p>
+				<p class="ai-card-desc">An LLM + RAG pipeline that analyzes restaurant menus to identify competitive gaps and opportunities.</p>
+				<p class="ai-card-proof">35 dishes · 3 chains · 2 AI approaches</p>
+				<p class="ai-card-tech">Python · Claude API · RAG</p>
+				<p class="ai-card-cta matcha">Explore Project →</p>
+			</div>
 		</div>
-		<div class="nc-card" onclick="openModal('modal-mcp-weather')">
-			<div class="nc-icon forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">MCP-Powered Weather Tool — Real-Time LLM Tool Integration</p>
-			<p class="nc-role forest">Model Context Protocol, Python</p>
+		<div class="nc-card ai-card" onclick="openModal('modal-career-ops')">
+			<div class="ai-card-visual forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+			<div class="ai-card-body">
+				<p class="ai-card-title">Career Ops AI</p>
+				<p class="ai-card-subtitle forest">Autonomous job intelligence</p>
+				<p class="ai-card-desc">An AI agent that monitors 100+ companies, detects ATS changes, filters opportunities, and delivers curated job alerts automatically.</p>
+				<p class="ai-card-proof">100+ companies · 6 ATS platforms · 2× daily</p>
+				<p class="ai-card-tech">Python · AI Agents · ATS APIs</p>
+				<p class="ai-card-cta forest">Explore Project →</p>
+			</div>
 		</div>
-		<div class="nc-card" onclick="openModal('modal-career-ops')">
-			<div class="nc-icon moss"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Career Ops AI Agent — Autonomous Job Intelligence Pipeline</p>
-			<p class="nc-role moss">Autonomous Agent, Python</p>
+		<div class="nc-card ai-card" onclick="openModal('modal-mcp-weather')">
+			<div class="ai-card-visual moss"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 18a4 4 0 0 1-.6-7.96A5 5 0 0 1 16 8a3.5 3.5 0 0 1 1 6.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 18h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+			<div class="ai-card-body">
+				<p class="ai-card-title">MCP Weather</p>
+				<p class="ai-card-subtitle moss">Real-time AI tool integration</p>
+				<p class="ai-card-desc">A custom MCP server that gives an LLM access to live weather data through external APIs.</p>
+				<p class="ai-card-proof">2 MCP servers · 6 tools · live data</p>
+				<p class="ai-card-tech">Python · MCP · APIs · Claude</p>
+				<p class="ai-card-cta moss">Explore Project →</p>
+			</div>
 		</div>
-		<div class="nc-card" onclick="openModal('modal-rps-esp32')">
-			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">RPS-ESP32-CNN — End-to-End Edge AI Deployment</p>
-			<p class="nc-role matcha">TensorFlow/Keras, ESP32, CNN</p>
+		<div class="nc-card ai-card" onclick="openModal('modal-rps-esp32')">
+			<div class="ai-card-visual matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+			<div class="ai-card-body">
+				<p class="ai-card-title">RPS-ESP32-CNN</p>
+				<p class="ai-card-subtitle matcha">Edge AI from hardware to inference</p>
+				<p class="ai-card-desc">A computer-vision system built end-to-end—from custom image collection and CNN training to live embedded inference.</p>
+				<p class="ai-card-proof">Custom dataset · CNN · ESP32 · live inference</p>
+				<p class="ai-card-tech">ESP32 · TensorFlow · CNN · MicroPython</p>
+				<p class="ai-card-cta matcha">Explore Project →</p>
+			</div>
 		</div>
 	</div>
 	</div>
@@ -1941,72 +2019,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			<p>Eliminated all manual intervention — zero human triggers required. The system self-corrects its own data layer, maintains 100% ATS coverage, and delivers fit-filtered opportunities on a fully automated cadence.</p>
 
-			<h4>KEY TECHNOLOGIES</h4>
-			<p>Python, Greenhouse API, Lever API, Task Scheduling</p>
-
-			<div style="text-align:center; margin-top:2em;">
-				<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-career-ops')">Close Project</a>
-			</div>
+			<a href="javascript:void(0)" onclick="closeModal('modal-career-ops')" class="button small">Close Project</a>
 		</div>
 	</div>
 
-	<!-- 7. Menu Intelligence -->
-	<div id="modal-menu-intelligence" class="modal">
-		<div class="modal-content">
-			<span class="close-modal" onclick="closeModal('modal-menu-intelligence')">&times;</span>
-
-			<h2>Menu Intelligence — LLM + RAG Competitive Analysis Tool</h2>
-
-			<h4>SITUATION</h4>
-
-			<p>Restaurant operators and investors had no scalable way to identify menu gaps and emerging food trends without expensive manual research.</p>
-
-			<h4>ACTION</h4>
-
-			<p>Built a 4-stage automated pipeline in Python — competitor menu scraping, LLM-based dish tagging, dual-method analysis (direct LLM querying + RAG-based retrieval), and auto-generated structured reporting. Used the Claude API, vector-based retrieval, and Python end-to-end.</p>
-
-			<h4>RESULT</h4>
-
-			<p>Compressed a multi-day manual research process into a single query-driven workflow, delivering a competitive intelligence report usable by both investors and restaurant operators.</p>
-
-			<h4>KEY TECHNOLOGIES</h4>
-			<p>Claude API, RAG (Retrieval-Augmented Generation), Python</p>
-
-			<div style="text-align:center; margin-top:2em;">
-				<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-menu-intelligence')">Close Project</a>
-			</div>
-		</div>
-	</div>
-
-	<!-- 8. MCP Weather Tool -->
-	<div id="modal-mcp-weather" class="modal">
-		<div class="modal-content">
-			<span class="close-modal" onclick="closeModal('modal-mcp-weather')">&times;</span>
-
-			<h2>MCP-Powered Weather Tool — Real-Time LLM Tool Integration</h2>
-
-			<h4>SITUATION</h4>
-
-			<p>LLMs have no native access to live external data, limiting their usefulness for real-world, time-sensitive queries.</p>
-
-			<h4>ACTION</h4>
-
-			<p>Designed and deployed a custom MCP (Model Context Protocol) server in Python, integrating the US National Weather Service API via a two-step call pattern — grid identification followed by multi-day forecast retrieval — exposed as a live tool callable mid-conversation.</p>
-
-			<h4>RESULT</h4>
-
-			<p>Delivered a production-grade pattern for extending LLM assistants with real-time external data, demonstrating hands-on proficiency in the emerging MCP standard for agentic AI architectures.</p>
-
-			<h4>KEY TECHNOLOGIES</h4>
-			<p>Python, MCP (Model Context Protocol), National Weather Service API</p>
-
-			<div style="text-align:center; margin-top:2em;">
-				<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-mcp-weather')">Close Project</a>
-			</div>
-		</div>
-	</div>
-
-	<!-- 9. RPS-ESP32-CNN -->
+	<!-- 7. RPS-ESP32-CNN -->
 	<div id="modal-rps-esp32" class="modal">
 		<div class="modal-content">
 			<span class="close-modal" onclick="closeModal('modal-rps-esp32')">&times;</span>
@@ -2026,105 +2043,142 @@ document.addEventListener("DOMContentLoaded", function () {
 			<p>Deployed a fully functional edge AI system from raw hardware to live inference — demonstrating end-to-end ML ownership across data collection, model training, optimization, and embedded deployment.</p>
 
 			<h4>KEY TECHNOLOGIES</h4>
-			<p>TensorFlow/Keras, Python, ESP32, MicroPython, CNN</p>
+			<p>TensorFlow/Keras, ESP32-CAM, MicroPython, CNN</p>
 
-			<div style="text-align:center; margin-top:2em;">
-				<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-rps-esp32')">Close Project</a>
-			</div>
+			<a href="javascript:void(0)" onclick="closeModal('modal-rps-esp32')" class="button small">Close Project</a>
 		</div>
 	</div>
 
-		<!-- LEADERSHIP MODALS -->
+	<!-- 8. Menu Intelligence -->
+	<div id="modal-menu-intelligence" class="modal">
+		<div class="modal-content">
+			<span class="close-modal" onclick="closeModal('modal-menu-intelligence')">&times;</span>
 
-		<!-- Cornell Graduate Product Management Club -->
-		<div id="modal-leadership-cgpmc" class="modal">
-			<div class="modal-content">
-				<span class="close-modal" onclick="closeModal('modal-leadership-cgpmc')">&times;</span>
+			<h2>Menu Intelligence — LLM + RAG Competitive Analysis Tool</h2>
 
-				<h2>President &mdash; Cornell Graduate Product Management Club</h2>
+			<h4>SITUATION</h4>
 
-				<h4>SITUATION</h4>
-				<p>The Cornell Graduate Product Management Club operated informally, without official campus recognition, governance structure, or funding. For it to grow into a lasting resource for graduate students pursuing product careers, it needed to become an officially accredited university entity.</p>
+			<p>Restaurant operators and investors had no scalable way to identify menu gaps and emerging food trends without expensive manual research.</p>
 
-				<h4>ACTION</h4>
-				<ul>
-					<li><strong>Institutionalization:</strong> Authored the club's official constitution, built out the inaugural executive board, and registered the club with the university's Campus Groups system.</li>
-					<li><strong>Financial &amp; Event Management:</strong> Secured university funding and launched the club's first campus-wide networking event.</li>
-					<li><strong>Strategic Partnerships:</strong> Built collaborations with Johns Hopkins University and Duke University to co-host cross-disciplinary Product Management Hackathons.</li>
-				</ul>
+			<h4>ACTION</h4>
 
-				<h4>RESULT</h4>
-				<ul>
-					<li>Transformed an informal student group into an officially recognized, funded university club.</li>
-					<li>Cornell secured 2nd prize in a major multi-university Product Management Hackathon.</li>
-				</ul>
+			<p>Built a 4-stage automated pipeline in Python — competitor menu scraping, LLM-based dish tagging, dual-method analysis (direct LLM querying + RAG-based retrieval), and auto-generated structured reporting. Used Claude API, vector-based retrieval, and Python end-to-end.</p>
 
-				<div style="text-align:center; margin-top:2em;">
-					<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-leadership-cgpmc')">Close</a>
-				</div>
-			</div>
+			<h4>RESULT</h4>
+
+			<p>Compressed a multi-day manual research process into a single query-driven workflow, delivering a competitive intelligence report usable by both investors and restaurant operators.</p>
+
+			<h4>KEY TECHNOLOGIES</h4>
+			<p>Claude API, RAG, Python</p>
+
+			<a href="javascript:void(0)" onclick="closeModal('modal-menu-intelligence')" class="button small">Close Project</a>
 		</div>
+	</div>
 
-		<!-- Canizares Center for Emerging Markets -->
-		<div id="modal-leadership-canizares" class="modal">
-			<div class="modal-content">
-				<span class="close-modal" onclick="closeModal('modal-leadership-canizares')">&times;</span>
+	<!-- 9. MCP-Powered Weather Tool -->
+	<div id="modal-mcp-weather" class="modal">
+		<div class="modal-content">
+			<span class="close-modal" onclick="closeModal('modal-mcp-weather')">&times;</span>
 
-				<h2>Fellow &mdash; The Canizares Center for Emerging Markets</h2>
+			<h2>MCP-Powered Weather Tool — Real-Time LLM Tool Integration</h2>
 
-				<h4>SITUATION</h4>
-				<p>Emerging-market retail supply chains, especially India's kirana (traditional grocery) ecosystem, remain fragmented and relationship-based. COVID-19 exposed the fragility of this model, creating a need for research into how digital transformation could modernize it.</p>
+			<h4>SITUATION</h4>
 
-				<h4>ACTION</h4>
-				<ul>
-					<li><strong>Framework Analysis:</strong> Documented the ecosystem's shift from manual, relationship-driven "push" models to digital "pull" models.</li>
-					<li><strong>Technology Stack Mapping:</strong> Mapped the enabling technology stack, including smartphone adoption, UPI payments, AI-driven demand forecasting, and ONDC.</li>
-					<li><strong>Operational Optimization:</strong> Analyzed the financial impact of eliminating dead stock, stockouts, and waste across the supply chain.</li>
-				</ul>
+			<p>LLMs have no native access to live external data, limiting their usefulness for real-world, time-sensitive queries.</p>
 
-				<h4>RESULT</h4>
-				<ul>
-					<li>Published a strategic article via the Canizares Center.</li>
-					<li>Was the only Master of Engineering (M.Eng) Fellow selected for the academic year.</li>
-				</ul>
+			<h4>ACTION</h4>
 
-				<div style="text-align:center; margin-top:2em;">
-					<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-leadership-canizares')">Close</a>
-				</div>
-			</div>
+			<p>Designed and deployed a custom MCP (Model Context Protocol) server in Python, integrating the US National Weather Service API via a two-step call pattern — grid identification followed by multi-day forecast retrieval — exposed as a live tool callable mid-conversation.</p>
+
+			<h4>RESULT</h4>
+
+			<p>Delivered a production-grade pattern for extending LLM assistants with real-time external data, demonstrating hands-on proficiency in the emerging MCP standard for agentic AI architectures.</p>
+
+			<h4>KEY TECHNOLOGIES</h4>
+			<p>Python, MCP (Model Context Protocol), US National Weather Service API</p>
+
+			<a href="javascript:void(0)" onclick="closeModal('modal-mcp-weather')" class="button small">Close Project</a>
 		</div>
+	</div>
 
-		<!-- Prayatnam -->
-		<div id="modal-leadership-prayatnam" class="modal">
-			<div class="modal-content">
-				<span class="close-modal" onclick="closeModal('modal-leadership-prayatnam')">&times;</span>
+	<!-- Leadership: CGPMC -->
+	<div id="modal-leadership-cgpmc" class="modal">
+		<div class="modal-content">
+			<span class="close-modal" onclick="closeModal('modal-leadership-cgpmc')">&times;</span>
 
-				<h2>Event Lead &mdash; Prayatnam, VIT Social Welfare &amp; Development Club</h2>
+			<h2>President, Cornell Graduate Product Management Club</h2>
 
-				<h4>SITUATION</h4>
-				<p>As part of the team preparing to launch Prayatnam, a program supporting 30+ differently-abled children at Jeevan Dhara Vidyalaya, the designated Team Lead withdrew days before launch due to a personal emergency. I proactively stepped up as the primary Team Lead to keep the program on track.</p>
+			<h4>SITUATION</h4>
 
-				<h4>ACTION</h4>
-				<ul>
-					<li><strong>Strategic Program Planning:</strong> Built a detailed master plan covering daily operations, volunteer responsibilities, and time slots.</li>
-					<li><strong>Logistics &amp; Resource Management:</strong> Managed resource allocation and commute logistics for the volunteer team.</li>
-					<li><strong>Curriculum Innovation:</strong> Designed creative Math and Science teaching methodologies suited to the children's needs.</li>
-					<li><strong>Team Alignment:</strong> Fostered a culture of equality and unity among volunteers.</li>
-				</ul>
+			<p>The club was operating informally in the background without campus recognition, official governance, or dedicated funding. As President, the challenge was to transition this student group into a fully accredited, well-funded university entity capable of delivering its core professional development and experiential learning mission to the graduate community.</p>
 
-				<h4>RESULT</h4>
-				<ul>
-					<li>Successfully conducted the 3-month program without delay.</li>
-					<li>School faculty and administrators were highly impressed by the team's execution.</li>
-				</ul>
+			<h4>ACTION</h4>
+			<ul>
+				<li><strong>Institutionalization:</strong> Formally established the club by authoring its official constitution, building the inaugural executive board, and registering CGPMC with university Campus Groups to secure official university branding.</li>
+				<li><strong>Financial & Event Management:</strong> Pitched and secured university funding to launch the club, orchestrating its first campus-wide launch and networking event.</li>
+				<li><strong>Strategic Partnerships:</strong> Formulated intercollegiate collaborations with peer Ivy League graduate schools, Johns Hopkins University, and Duke University to co-host cross-disciplinary Product Management Hackathons.</li>
+			</ul>
 
-				<div style="text-align:center; margin-top:2em;">
-					<a href="javascript:void(0)" class="button small" onclick="closeModal('modal-leadership-prayatnam')">Close</a>
-				</div>
-			</div>
+			<h4>RESULT</h4>
+
+			<p>Successfully transformed an informal group into an officially recognized, funded university club with a structured pipeline for technical skill development, company treks, and alumni mentorship. Driven collaborations expanded the club's network and directly culminated in Cornell securing the 2nd prize in a major multi-university Product Management Hackathon.</p>
+
+			<a href="javascript:void(0)" onclick="closeModal('modal-leadership-cgpmc')" class="button small">Close Project</a>
 		</div>
+	</div>
 
+	<!-- Leadership: Canizares -->
+	<div id="modal-leadership-canizares" class="modal">
+		<div class="modal-content">
+			<span class="close-modal" onclick="closeModal('modal-leadership-canizares')">&times;</span>
+
+			<h2>Fellow, The Cañizares Center for Emerging Markets</h2>
+
+			<h4>SITUATION</h4>
+
+			<p>Traditional retail supply chains in emerging markets remain highly fragmented, relationship-based, and vulnerable to disruptions, as exposed by the fragility of cash-heavy operations during COVID-19. Within the Cañizares Center (EMC²), there was a critical need to produce forward-looking research analyzing how digital transformation and modern supply chain frameworks are redesigning these legacy systems, specifically looking at India's traditional grocery (kirana) ecosystem.</p>
+
+			<h4>ACTION</h4>
+			<ul>
+				<li><strong>Framework Analysis:</strong> Documented the macroeconomic shift from traditional "push" models to digital "pull" models driven by real-time demand signals and application-based ordering.</li>
+				<li><strong>Technology Stack Mapping:</strong> Evaluated the integrated technological infrastructure enabling 24/7 replenishment, analyzing how smartphone adoption, UPI digital payments, AI forecasting, and open networks like ONDC serve as replicable foundational rails.</li>
+				<li><strong>Operational Optimization:</strong> Examined the bottom-line financial impact of digital adoption, proving that the primary business gain stems from eliminating dead stock, mitigating stockouts, and drastically reducing waste.</li>
+			</ul>
+
+			<h4>RESULT</h4>
+
+			<p>Served as the cohort's only Master of Engineering Fellow for the academic year. Published a highly strategic, industry-relevant article through the Cañizares Center, offering a blueprint for modernizing fragmented retail ecosystems across global emerging markets.</p>
+
+			<a href="javascript:void(0)" onclick="closeModal('modal-leadership-canizares')" class="button small">Close Project</a>
+		</div>
+	</div>
+
+	<!-- Leadership: Prayatnam -->
+	<div id="modal-leadership-prayatnam" class="modal">
+		<div class="modal-content">
+			<span class="close-modal" onclick="closeModal('modal-leadership-prayatnam')">&times;</span>
+
+			<h2>Event Lead, Prayatnam — VIT Social Welfare & Development Club</h2>
+
+			<h4>SITUATION</h4>
+
+			<p>As a member of the Social Welfare & Development Committee at VIT, preparing to launch "Prayatnam," a flagship educational initiative supporting 30+ differently-abled children at Jeevan Dhara Vidyalaya. Days before the program was scheduled to begin, the designated Team Lead had to withdraw due to a personal emergency, creating an immediate leadership vacuum and risk of cancellation.</p>
+
+			<h4>ACTION</h4>
+			<ul>
+				<li><strong>Strategic Program Planning:</strong> Built a detailed master plan defining daily operations, volunteer responsibilities, and specific time slots to ensure consistent student engagement.</li>
+				<li><strong>Logistics & Resource Management:</strong> Managed all resource allocation and commute logistics for the volunteer team, ensuring safe and timely transportation to the school in Pune.</li>
+				<li><strong>Curriculum Innovation:</strong> Led the team in developing creative teaching methodologies for Math and Science, translating academic topics into interactive lessons.</li>
+				<li><strong>Team Alignment:</strong> Fostered "equality and unity" among the volunteers to maintain high morale despite the sudden leadership transition.</li>
+			</ul>
+
+			<h4>RESULT</h4>
+
+			<p>Successfully initiated and conducted the 3-month program without delay, directly supporting the educational development of 30+ students. School faculty and administrators were highly impressed by the team's enthusiasm and the seamless execution of the initiative.</p>
+
+			<a href="javascript:void(0)" onclick="closeModal('modal-leadership-prayatnam')" class="button small">Close Project</a>
+		</div>
+	</div>
 
 	</body>
-
 </html>
