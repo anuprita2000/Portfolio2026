@@ -783,27 +783,36 @@ a:hover { color: #2F4A32; }
 			.nc-role.matcha { color: #4d7a2a; } .nc-role.forest { color: #2F4A32; } .nc-role.moss { color: #567A3A; }
 			.nc-desc { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; color: #79715c; margin: 8px 0 0; line-height: 1.5; }
 
-			/* AI & Digital Builds: detailed project cards (square, 2x2, wide) */
-			#ai-projects .nc-grid { max-width: 1040px; grid-template-columns: repeat(2, 1fr); gap: 22px; }
-			#ai-projects .nc-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; aspect-ratio: 1 / 1; }
-			.ai-card-visual { flex: 0 0 34%; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+			/* AI & Digital Builds + Selected Projects: square teaser tiles, 3 per row on desktop/tablet
+			   (1 per row on mobile) so the squares stay large enough to read comfortably.
+			   Face shows image + title + subtitle + a one-line description/proof/tech snippet — each
+			   detail line is forced to a single line via nowrap+ellipsis so nothing wraps or overlaps. */
+			#ai-projects .nc-grid, #portfolio .nc-grid { max-width: 950px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; align-items: start; }
+			@media screen and (min-width: 736px) {
+				#ai-projects .nc-grid, #portfolio .nc-grid { grid-template-columns: repeat(3, 1fr); }
+			}
+			#ai-projects .nc-card, #portfolio .nc-card.ai-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; aspect-ratio: 1 / 1; max-width: 270px; margin: 0 auto; width: 100%; }
+			/* Selected Projects cards also carry the legacy .item class (height:350px, fixed) from an earlier
+			   card system — override it here so the square aspect-ratio governs height instead. */
+			#portfolio .nc-card.ai-card.item { height: auto !important; }
+			.ai-card-visual { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 			.ai-card-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
-			.ai-card-visual svg { width: 36px; height: 36px; color: #fff; opacity: 0.9; }
+			.ai-card-visual.logo-fit { background: #FAFAF5; }
+			.ai-card-visual.logo-fit img { width: auto; height: auto; max-width: 55%; max-height: 50%; object-fit: contain; }
+			.ai-card-visual svg { width: 26px; height: 26px; color: #fff; opacity: 0.9; }
 			.ai-card-visual.matcha { background: linear-gradient(135deg, #8FBF4D, #5c8a34); }
 			.ai-card-visual.forest { background: linear-gradient(135deg, #45664a, #1F3320); }
 			.ai-card-visual.moss { background: linear-gradient(135deg, #6c9048, #3f5c29); }
-			.ai-card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; min-height: 0; }
-			@media screen and (max-width: 600px) {
-				#ai-projects .nc-grid { grid-template-columns: 1fr; }
-				#ai-projects .nc-card { aspect-ratio: auto; }
-			}
+			.ai-card-body { flex: 0 0 auto; min-height: 0; padding: 12px 14px 12px; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; text-align: center; overflow: hidden; }
 			.ai-card-title { font-family: Georgia, 'Times New Roman', serif; font-size: 14px; font-weight: bold; color: #2c2c28; margin: 0; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-			.ai-card-subtitle { font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: 600; margin: 3px 0 0; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+			.ai-card-subtitle, .ai-card-desc, .ai-card-proof, .ai-card-tech { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+			.ai-card-subtitle { font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.2px; margin: 5px 0 0; line-height: 1.25; }
 			.ai-card-subtitle.matcha { color: #4d7a2a; } .ai-card-subtitle.forest { color: #2F4A32; } .ai-card-subtitle.moss { color: #567A3A; }
-			.ai-card-desc { font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; color: #5c5c54; line-height: 1.45; margin: 8px 0 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-			.ai-card-proof { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 600; color: #C17A54; letter-spacing: 0.1px; line-height: 1.3; margin: 8px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-			.ai-card-tech { font-family: Helvetica, Arial, sans-serif; font-size: 9.5px; color: #8a7a4f; letter-spacing: 0.15px; margin: 4px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-			.ai-card-cta { font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: 700; margin-top: auto; padding-top: 8px; }
+			.ai-card-desc { font-family: Helvetica, Arial, sans-serif; font-size: 9.5px; color: #7a7a70; margin: 5px 0 0; line-height: 1.3; }
+			.ai-card-proof { font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; color: #8a7a4f; margin: 4px 0 0; line-height: 1.25; }
+			.ai-card-tech { font-family: Helvetica, Arial, sans-serif; font-size: 8px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; color: #a3a396; margin: 4px 0 0; line-height: 1.25; }
+			.ai-card-cta { font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 700; margin: 6px 0 0; line-height: 1; transition: transform 0.2s ease; }
+			#ai-projects .nc-card:hover .ai-card-cta, #portfolio .nc-card.ai-card:hover .ai-card-cta { transform: translateX(3px); }
 			.ai-card-cta.matcha { color: #4d7a2a; } .ai-card-cta.forest { color: #2F4A32; } .ai-card-cta.moss { color: #567A3A; }
 			.timeline-list { max-width: 900px; margin: 0 auto; }
 			.timeline-row { display: grid; grid-template-columns: 130px 16px 1fr; gap: 18px; padding: 14px 0; position: relative; }
@@ -819,14 +828,51 @@ a:hover { color: #2F4A32; }
 			.nc-card.in-view, .timeline-content.in-view { opacity: 1; transform: translateY(0); }
 
 
-			/* Writing list (title-as-link style) */
-			.writing-list { max-width: 900px; margin: 0 auto; }
-			.writing-item { padding: 16px 4px; border-bottom: 1px solid #e6ddc8; opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
-			.writing-item:last-child { border-bottom: none; }
+			/* Writing & Perspectives: "The Trail" — a dotted path connects three waypoints, each essay
+			   presented as a stop along the trail. Plays on the same matcha/forest/moss botanical
+			   palette used throughout the rest of the site. */
+			.writing-list { max-width: 640px; margin: 0 auto; position: relative; padding-left: 60px; }
+			.writing-list::before {
+				content: ''; position: absolute; left: 21px; top: 8px; bottom: 8px; width: 2px;
+				background: repeating-linear-gradient(to bottom, #cfc7ac 0, #cfc7ac 4px, transparent 4px, transparent 9px);
+			}
+			.writing-item {
+				position: relative; display: block; text-decoration: none; text-align: left;
+				margin-bottom: 46px;
+				opacity: 0; transform: translateY(14px);
+				transition: opacity 0.6s ease, transform 0.6s ease;
+			}
+			.writing-item:last-child { margin-bottom: 0; }
 			.writing-item.in-view { opacity: 1; transform: translateY(0); }
-			.writing-title-link { font-family: Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: bold; color: #2c2c28; text-decoration: none; }
-			.writing-title-link:hover { color: #2F4A32; text-decoration: underline; }
-			.writing-tags { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; color: #79715c; margin: 6px 0 0; }
+			.writing-icon {
+				position: absolute; left: -60px; top: 0; width: 44px; height: 44px; border-radius: 50%;
+				display: flex; align-items: center; justify-content: center; color: #fff;
+				box-shadow: 0 3px 8px rgba(0,0,0,0.18); transition: transform 0.25s ease; z-index: 1;
+			}
+			.writing-icon svg { width: 18px; height: 18px; }
+			.writing-icon.matcha { background: #8FBF4D; } .writing-icon.forest { background: #2F4A32; } .writing-icon.moss { background: #567A3A; }
+			.writing-item:hover .writing-icon { transform: scale(1.08) rotate(-4deg); }
+			.writing-main { min-width: 0; }
+			.writing-step { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin: 4px 0 6px; }
+			.writing-step.matcha { color: #4d7a2a; } .writing-step.forest { color: #2F4A32; } .writing-step.moss { color: #567A3A; }
+			.writing-title-link { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; color: #2c2c28; line-height: 1.3; margin: 0 0 12px; }
+			.writing-item:hover .writing-title-link { color: #2F4A32; text-decoration: underline; }
+			.writing-tags-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+			.writing-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+			.writing-tag { font-family: Helvetica, Arial, sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; padding: 4px 11px; border-radius: 20px; white-space: nowrap; }
+			.writing-tag.matcha { background: rgba(143,191,77,0.15); color: #4d7a2a; }
+			.writing-tag.forest { background: rgba(47,74,50,0.10); color: #2F4A32; }
+			.writing-tag.moss { background: rgba(86,122,58,0.13); color: #567A3A; }
+			.writing-arrow { flex: 0 0 auto; font-size: 16px; font-weight: 700; opacity: 0; transform: translateX(-6px); transition: opacity 0.25s ease, transform 0.25s ease; }
+			.writing-arrow.matcha { color: #4d7a2a; } .writing-arrow.forest { color: #2F4A32; } .writing-arrow.moss { color: #567A3A; }
+			.writing-item:hover .writing-arrow { opacity: 1; transform: translateX(0); }
+			@media screen and (max-width: 480px) {
+				.writing-list { padding-left: 50px; }
+				.writing-list::before { left: 17px; }
+				.writing-icon { left: -50px; width: 36px; height: 36px; }
+				.writing-icon svg { width: 15px; height: 15px; }
+				.writing-title-link { font-size: 18px; }
+			}
 
 /* Calm Experience cards: cream + terracotta accent */
 #experience .cb-matcha, #experience .cb-forest, #experience .cb-moss {
@@ -897,8 +943,7 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 /* Item 5: align Experience card location under title */
 #experience .color-block-title, #experience .color-block-role, #experience .color-block-desc { text-align: left !important; }
 #experience .color-block-desc { font-size: 10.5px !important; }
-/* Item 6: match Selected Projects card height to AI Builds cards */
-#portfolio .nc-card.item { height: auto !important; }
+/* Item 6: Selected Projects cards now share the AI Builds card system directly (see shared .ai-card rules above) */
 
 /* Item 4: bigger nav text, name stays on one line */
 @media screen and (min-width: 981px) {
@@ -1079,7 +1124,7 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 				<p class="ai-card-desc">An LLM + RAG pipeline that analyzes restaurant menus to identify competitive gaps and opportunities.</p>
 				<p class="ai-card-proof">35 dishes · 3 chains · 2 AI approaches</p>
 				<p class="ai-card-tech">Python · Claude API · RAG</p>
-				<p class="ai-card-cta matcha">Explore Project →</p>
+				<p class="ai-card-cta matcha">→</p>
 			</div>
 		</div>
 		<div class="nc-card ai-card" onclick="openModal('modal-career-ops')">
@@ -1090,7 +1135,7 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 				<p class="ai-card-desc">An AI agent that monitors 100+ companies, detects ATS changes, filters opportunities, and delivers curated job alerts automatically.</p>
 				<p class="ai-card-proof">100+ companies · 6 ATS platforms · 2× daily</p>
 				<p class="ai-card-tech">Python · AI Agents · ATS APIs</p>
-				<p class="ai-card-cta forest">Explore Project →</p>
+				<p class="ai-card-cta forest">→</p>
 			</div>
 		</div>
 		<div class="nc-card ai-card" onclick="openModal('modal-mcp-weather')">
@@ -1101,7 +1146,7 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 				<p class="ai-card-desc">A custom MCP server that gives an LLM access to live weather data through external APIs.</p>
 				<p class="ai-card-proof">2 MCP servers · 6 tools · live data</p>
 				<p class="ai-card-tech">Python · MCP · APIs · Claude</p>
-				<p class="ai-card-cta moss">Explore Project →</p>
+				<p class="ai-card-cta moss">→</p>
 			</div>
 		</div>
 		<div class="nc-card ai-card" onclick="openModal('modal-rps-esp32')">
@@ -1112,7 +1157,7 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 				<p class="ai-card-desc">A computer-vision system built end-to-end—from custom image collection and CNN training to live embedded inference.</p>
 				<p class="ai-card-proof">Custom dataset · CNN · ESP32 · live inference</p>
 				<p class="ai-card-tech">ESP32 · TensorFlow · CNN · MicroPython</p>
-				<p class="ai-card-cta matcha">Explore Project →</p>
+				<p class="ai-card-cta matcha">→</p>
 			</div>
 		</div>
 	</div>
@@ -1144,30 +1189,60 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 	</header>
 
 	<div class="nc-grid">
-		<div class="item filter-item data-prod nc-card" onclick="openModal('modal-marketbasket')">
-			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Market Basket Analysis using R &amp; Python</p>
-			<p class="nc-role matcha">Data &amp; Product</p>
+		<div class="item filter-item data-prod nc-card ai-card" onclick="openModal('modal-marketbasket')">
+			<div class="ai-card-visual matcha"><img src="images/marketbasket.jpg" alt="Market Basket Analysis dashboard graphic" loading="lazy"></div>
+			<div class="ai-card-body">
+				<p class="ai-card-title">Market Basket Analysis</p>
+				<p class="ai-card-subtitle matcha">Data &amp; Product</p>
+				<p class="ai-card-desc">Applied K-Means, ECLAT, and FP-Growth to a large retail transaction dataset to uncover customer segments and cross-sell opportunities.</p>
+				<p class="ai-card-proof">387,985 transactions · 968 itemsets · lift up to 56.6</p>
+				<p class="ai-card-tech">R · Python · K-Means · FP-Growth</p>
+				<p class="ai-card-cta matcha">→</p>
+			</div>
 		</div>
-		<div class="item filter-item ops-sys nc-card" onclick="openModal('modal-bigred')">
-			<div class="nc-icon forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Program Management, Big Red Bites</p>
-			<p class="nc-role forest">Operations &amp; Systems</p>
+		<div class="item filter-item ops-sys nc-card ai-card" onclick="openModal('modal-bigred')">
+			<div class="ai-card-visual forest"><img src="images/bigredbites.jpg" alt="Big Red Bites app interface" loading="lazy"></div>
+			<div class="ai-card-body">
+				<p class="ai-card-title">Big Red Bites</p>
+				<p class="ai-card-subtitle forest">Operations &amp; Systems</p>
+				<p class="ai-card-desc">Led a 14-member cross-functional team through strategic planning and a 7-month execution roadmap for a campus food-waste platform.</p>
+				<p class="ai-card-proof">14-member team · $106K budget · 3rd place finish</p>
+				<p class="ai-card-tech">Notion · GANTT Planning · UX Prototyping</p>
+				<p class="ai-card-cta forest">→</p>
+			</div>
 		</div>
-		<div class="item filter-item data-prod nc-card" onclick="openModal('modal-plant')">
-			<div class="nc-icon moss"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Market Entry Strategy of a Plant-based Snack</p>
-			<p class="nc-role moss">Data &amp; Product</p>
+		<div class="item filter-item data-prod nc-card ai-card" onclick="openModal('modal-plant')">
+			<div class="ai-card-visual moss"><img src="images/clusterprice.jpg" alt="Product price tier clustering chart" loading="lazy"></div>
+			<div class="ai-card-body">
+				<p class="ai-card-title">Plant-Based Snack Strategy</p>
+				<p class="ai-card-subtitle moss">Data &amp; Product</p>
+				<p class="ai-card-desc">Built a data-led market entry strategy for a plant-based protein bar using price clustering, EMV decision trees, and MAUT analysis.</p>
+				<p class="ai-card-proof">$42.5M EMV · 99.94% robustness · 8-state analysis</p>
+				<p class="ai-card-tech">K-Means · Decision Trees · MAUT</p>
+				<p class="ai-card-cta moss">→</p>
+			</div>
 		</div>
-		<div class="item filter-item ops-sys nc-card" onclick="openModal('modal-crdf')">
-			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Robotic Arm, CRDF</p>
-			<p class="nc-role matcha">Operations &amp; Systems</p>
+		<div class="item filter-item ops-sys nc-card ai-card" onclick="openModal('modal-crdf')">
+			<div class="ai-card-visual matcha"><img src="images/crdfrobot.jpg" alt="6 DOF robotic arm CAD design" loading="lazy"></div>
+			<div class="ai-card-body">
+				<p class="ai-card-title">Robotic Arm, CRDF</p>
+				<p class="ai-card-subtitle matcha">Operations &amp; Systems</p>
+				<p class="ai-card-desc">Designed and simulated a 6-DOF robotic arm end-to-end, coordinating hands-on technical build with weekly team delivery milestones.</p>
+				<p class="ai-card-proof">6 DOF · ROS simulation · weekly milestones</p>
+				<p class="ai-card-tech">ROS · Robotics · Simulation</p>
+				<p class="ai-card-cta matcha">→</p>
+			</div>
 		</div>
-		<div class="item filter-item data-prod nc-card" onclick="openModal('modal-drivebuddy')">
-			<div class="nc-icon forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Business &amp; Technology, DrivebuddyAI</p>
-			<p class="nc-role forest">Data &amp; Product</p>
+		<div class="item filter-item data-prod nc-card ai-card" onclick="openModal('modal-drivebuddy')">
+			<div class="ai-card-visual forest logo-fit"><img src="images/drivebuddy.jpg" alt="DriveBuddyAI logo" loading="lazy"></div>
+			<div class="ai-card-body">
+				<p class="ai-card-title">DriveBuddyAI</p>
+				<p class="ai-card-subtitle forest">Data &amp; Product</p>
+				<p class="ai-card-desc">Architected a real-time video capture, storage, and playback pipeline for fleet safety monitoring at an AI-powered telematics startup.</p>
+				<p class="ai-card-proof">End-to-end pipeline · real-time video · fleet-scale</p>
+				<p class="ai-card-tech">C++ · OpenCV · ROS</p>
+				<p class="ai-card-cta forest">→</p>
+			</div>
 		</div>
 	</div>
 	</div>
@@ -1184,20 +1259,41 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 	</header>
 
 	<div class="writing-list">
-		<div class="writing-item">
-			<a class="writing-title-link" href="https://medium.com/@anuprita.kaple18/screaming-into-the-algorithm-the-fight-to-be-seen-a2872c52cad0" target="_blank" rel="noopener noreferrer">Screaming into the Algorithm</a>
-			<p class="writing-tags">Technology · Work · Human Behavior</p>
-		</div>
-		<div class="writing-item">
-			<a class="writing-title-link" href="https://medium.com/@anuprita.kaple18/creating-demand-and-seeking-truth-day-one-at-spmi-immersion-3da556b44e76" target="_blank" rel="noopener noreferrer">Creating Demand and Seeking Truth</a>
-			<p class="writing-tags">Strategy · Consumers · Decision-Making</p>
-		</div>
-		<div class="writing-item">
-			<a class="writing-title-link" href="https://medium.com/@anuprita.kaple18/searching-for-the-outliers-0c9e364c8bb2" target="_blank" rel="noopener noreferrer">Searching for the Outliers</a>
-			<p class="writing-tags">Leadership · Character · Organizations</p>
-		</div>
+		<a class="writing-item" href="https://medium.com/@anuprita.kaple18/screaming-into-the-algorithm-the-fight-to-be-seen-a2872c52cad0" target="_blank" rel="noopener noreferrer">
+			<div class="writing-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10v4a1 1 0 0 0 1 1h2l4 4v-14l-4 4H4a1 1 0 0 0-1 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M15 8a4 4 0 0 1 0 8M18 5a8 8 0 0 1 0 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+			<div class="writing-main">
+				<p class="writing-step matcha">Waypoint 01</p>
+				<p class="writing-title-link">Screaming into the Algorithm</p>
+				<div class="writing-tags-row">
+					<div class="writing-tags"><span class="writing-tag matcha">Technology</span><span class="writing-tag matcha">Work</span><span class="writing-tag matcha">Human Behavior</span></div>
+					<span class="writing-arrow matcha">→</span>
+				</div>
+			</div>
+		</a>
+		<a class="writing-item" href="https://medium.com/@anuprita.kaple18/creating-demand-and-seeking-truth-day-one-at-spmi-immersion-3da556b44e76" target="_blank" rel="noopener noreferrer">
+			<div class="writing-icon forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M15 9l-2 6-6 2 2-6 6-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+			<div class="writing-main">
+				<p class="writing-step forest">Waypoint 02</p>
+				<p class="writing-title-link">Creating Demand and Seeking Truth</p>
+				<div class="writing-tags-row">
+					<div class="writing-tags"><span class="writing-tag forest">Strategy</span><span class="writing-tag forest">Consumers</span><span class="writing-tag forest">Decision-Making</span></div>
+					<span class="writing-arrow forest">→</span>
+				</div>
+			</div>
+		</a>
+		<a class="writing-item" href="https://medium.com/@anuprita.kaple18/searching-for-the-outliers-0c9e364c8bb2" target="_blank" rel="noopener noreferrer">
+			<div class="writing-icon moss"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l2.5 5.5L20 9l-4.5 4 1.2 6L12 16l-4.7 3 1.2-6L4 9l5.5-.5L12 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+			<div class="writing-main">
+				<p class="writing-step moss">Waypoint 03</p>
+				<p class="writing-title-link">Searching for the Outliers</p>
+				<div class="writing-tags-row">
+					<div class="writing-tags"><span class="writing-tag moss">Leadership</span><span class="writing-tag moss">Character</span><span class="writing-tag moss">Organizations</span></div>
+					<span class="writing-arrow moss">→</span>
+				</div>
+			</div>
+		</a>
 	</div>
-	<p style="text-align:center; margin-top:20px;"><a href="https://medium.com/@anuprita.kaple18" target="_blank" rel="noopener noreferrer" style="font-family:Helvetica,Arial,sans-serif; font-size:13px; font-weight:600; color:#2F4A32; text-decoration:none;">View all writing on Medium →</a></p>
+	<p style="text-align:center; margin-top:32px;"><a href="https://medium.com/@anuprita.kaple18" target="_blank" rel="noopener noreferrer" class="button small">View all writing on Medium →</a></p>
 	</div>
 </section>
 
@@ -1355,11 +1451,17 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
             }
 			
 			// Modal Functionality
-			function openModal(modalId) {
+			function openModal(modalId, skipHistory) {
                 var modal = document.getElementById(modalId);
                 if(modal) {
     			    modal.style.display = "block";
     			    document.body.style.overflow = "hidden"; // Prevent background scrolling
+                    if (!skipHistory) {
+                        var slug = modalId.replace('modal-', '');
+                        if (window.location.hash !== '#project-' + slug) {
+                            history.pushState({ modalId: modalId }, '', '#project-' + slug);
+                        }
+                    }
                 }
 			}
 
@@ -1368,16 +1470,39 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
                 if(modal) {
     			    modal.style.display = "none";
     			    document.body.style.overflow = "auto"; // Restore background scrolling
+                    if (window.location.hash) {
+                        history.pushState({}, '', window.location.pathname + window.location.search);
+                    }
                 }
 			}
+
+			// Deep-link support: give every project/experience/leadership item its own
+			// shareable URL (e.g. #project-marketbasket) and auto-open it on load.
+			function openModalFromHash() {
+                var hash = window.location.hash;
+                if (hash.indexOf('#project-') === 0) {
+                    var modalId = 'modal-' + hash.replace('#project-', '');
+                    openModal(modalId, true);
+                }
+            }
+            document.addEventListener('DOMContentLoaded', openModalFromHash);
+            window.addEventListener('popstate', function() {
+                var hash = window.location.hash;
+                if (hash.indexOf('#project-') === 0) {
+                    openModalFromHash();
+                } else {
+                    var openModals = document.querySelectorAll('.modal[style*="display: block"], .modal[style*="display:block"]');
+                    openModals.forEach(function(m) { m.style.display = 'none'; });
+                    document.body.style.overflow = 'auto';
+                }
+            });
 
 			// Close if user clicks outside the white box
 			window.onclick = function(event) {
     			if (event.target.className === "modal") {
-        			event.target.style.display = "none";
-        			document.body.style.overflow = "auto";
+        			closeModal(event.target.id);
     			}
-			}	
+			}
 
             // Smooth Scroll for Nav Links
             document.addEventListener("DOMContentLoaded", function () {
