@@ -782,6 +782,17 @@ a:hover { color: #2F4A32; }
 			.nc-role { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; font-weight: 600; margin: 0; }
 			.nc-role.matcha { color: #4d7a2a; } .nc-role.forest { color: #2F4A32; } .nc-role.moss { color: #567A3A; }
 			.nc-desc { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; color: #79715c; margin: 8px 0 0; line-height: 1.5; }
+			.nc-cta { font-family: Helvetica, Arial, sans-serif; font-size: 11px; line-height: 1.4; font-weight: 700; margin: 10px 0 0; }
+			.nc-cta.matcha { color: #4d7a2a; } .nc-cta.forest { color: #2F4A32; } .nc-cta.moss { color: #567A3A; }
+
+			/* Leadership & Community: photo banner on each card instead of the small icon badge */
+			#leadership .nc-card { padding: 0; overflow: hidden; }
+			#leadership .nc-card-photo { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #eee; }
+			#leadership .nc-card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+			/* CGPMC exec-board graphic is dense with a title bar + headshots — show it whole rather than cropping */
+			#leadership .nc-card-photo.contain-fit { background: #fff; }
+			#leadership .nc-card-photo.contain-fit img { object-fit: contain; }
+			#leadership .nc-card-body { padding: 16px 18px 18px; }
 
 			/* AI & Digital Builds + Selected Projects: square teaser tiles, 3 per row on desktop/tablet
 			   (1 per row on mobile) so the squares stay large enough to read comfortably.
@@ -821,56 +832,126 @@ a:hover { color: #2F4A32; }
 			.ai-card-line { font-family: Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: 600; margin: 9px 0 0; line-height: 1.35; text-align: center; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 			.ai-card-line.matcha { color: #4d7a2a; } .ai-card-line.forest { color: #2F4A32; } .ai-card-line.moss { color: #567A3A; }
 			#ai-projects .nc-card:hover .ai-card-cta, #portfolio .nc-card.ai-card:hover .ai-card-cta { transform: translateX(3px); background: #345a1b; }
-			.timeline-list { max-width: 900px; margin: 0 auto; }
-			.timeline-row { display: grid; grid-template-columns: 130px 16px 1fr; gap: 18px; padding: 14px 0; position: relative; }
-			.timeline-row:not(:last-child)::after { content: ""; position: absolute; left: 136px; top: 34px; bottom: -14px; width: 2px; background: #ddd2b3; }
-			.timeline-date { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; color: #8a7a4f; text-align: right; line-height: 1.5; padding-top: 2px; }
-			.timeline-dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 4px; position: relative; z-index: 1; }
+			/* Education: single-line compact rows (Concept B) — institution, degree and dates all on
+			   one line per entry, replacing the old wide dotted-timeline layout. Section padding is
+			   trimmed too, since two short rows don't need the site's default section spacing. */
+			#education.two { padding: 1.6em 0 !important; }
+			#education header { margin-bottom: 1em; }
+			.timeline-list { max-width: 640px; margin: 0 auto; }
+			.timeline-content {
+				display: flex; align-items: baseline; gap: 10px; padding: 9px 0;
+				border-bottom: 1px solid #ddd2b3; cursor: pointer; text-align: left;
+			}
+			.timeline-content:last-child { border-bottom: none; }
+			.timeline-dot { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; margin-bottom: 1px; }
 			.timeline-dot.matcha { background: #8FBF4D; } .timeline-dot.forest { background: #2F4A32; } .timeline-dot.moss { background: #567A3A; }
-			.timeline-content { cursor: pointer; }
-			.timeline-institution { font-family: Georgia, 'Times New Roman', serif; font-size: 16px; font-weight: bold; color: #2c2c28; margin: 0 0 4px; }
-			.timeline-degree { font-family: Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: 600; margin: 0; }
-			.timeline-degree.matcha { color: #4d7a2a; } .timeline-degree.forest { color: #2F4A32; }
+			.timeline-main { flex: 1; min-width: 0; }
+			.timeline-institution { font-family: Georgia, 'Times New Roman', serif; font-size: 14px; line-height: 1.3; font-weight: bold; color: #2c2c28; }
+			.timeline-degree { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; line-height: 1.3; font-weight: 600; margin-left: 6px; }
+			.timeline-degree.matcha { color: #4d7a2a; } .timeline-degree.forest { color: #2F4A32; } .timeline-degree.moss { color: #567A3A; }
+			.timeline-date { flex: 0 0 auto; font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; line-height: 1.35; color: #8a7a4f; text-align: right; white-space: nowrap; }
 			.nc-card, .timeline-content { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
 			.nc-card.in-view, .timeline-content.in-view { opacity: 1; transform: translateY(0); }
 
 
-			/* Writing & Perspectives: brighter, boxed creative space — 3 glass-effect boxes on a
+			/* Writing & Perspectives: brighter, boxed creative space — 3 square glass-effect boxes on a
 			   citrus gradient backdrop, deliberately distinct from the rest of the site's palette
-			   since this section is meant to read as a separate, more playful "creative" zone. */
-			#writing.two { background: linear-gradient(120deg, #FFE9C7 0%, #D7F0D2 55%, #C9EDE4 100%) !important; }
+			   since this section is meant to read as a separate, more playful "creative" zone.
+			   Section padding is trimmed well below the site's default #main>section spacing so this
+			   section doesn't consume more page height than the compact boxes need. */
+			#writing.two { background: linear-gradient(120deg, #FFE9C7 0%, #D7F0D2 55%, #C9EDE4 100%) !important; padding: 1.6em 0 !important; }
+			#writing header { margin-bottom: 0.9em; }
 			.writing-list {
-				max-width: 560px; margin: 0 auto; display: grid;
-				grid-template-columns: repeat(3, minmax(0, 160px)); gap: 10px; justify-content: center;
+				max-width: 590px; margin: 0 auto; display: grid;
+				grid-template-columns: repeat(3, minmax(0, 183px)); gap: 11px; justify-content: center;
 			}
 			.writing-item {
 				position: relative; display: flex; flex-direction: column; text-decoration: none; text-align: left;
-				border-radius: 10px; padding: 8px 10px;
+				border-radius: 10px; padding: 11px;
 				background: rgba(255,255,255,0.55); border: 1.5px solid rgba(255,255,255,0.9);
 				opacity: 0; transform: translateY(14px);
+				aspect-ratio: 1 / 1; overflow: hidden;
 				transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.25s ease;
 			}
 			.writing-item.in-view { opacity: 1; transform: translateY(0); }
 			.writing-item:hover { box-shadow: 0 8px 18px rgba(47,74,50,0.14); transform: translateY(-2px); }
 			.writing-icon {
-				width: 20px; height: 20px; border-radius: 6px; margin-bottom: 5px;
+				width: 24px; height: 24px; border-radius: 7px; margin-bottom: 7px; flex: 0 0 auto;
 				display: flex; align-items: center; justify-content: center;
 				background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 			}
-			.writing-icon svg { width: 11px; height: 11px; }
+			.writing-icon svg { width: 13px; height: 13px; }
 			.writing-icon.matcha { color: #C9772E; } .writing-icon.forest { color: #2F6E5C; } .writing-icon.moss { color: #1E7C8C; }
-			.writing-main { min-width: 0; display: flex; flex-direction: column; flex: 1; }
-			.writing-title-link { font-family: Georgia, 'Times New Roman', serif; font-size: 11.5px; font-weight: bold; color: #2c2c28; line-height: 1.2; margin: 0 0 5px; }
+			.writing-main { min-width: 0; min-height: 0; flex: 1; }
+			.writing-title-link {
+				font-family: Georgia, 'Times New Roman', serif; font-size: 13px; font-weight: bold; color: #2c2c28;
+				line-height: 1.25; margin: 0 0 7px; flex: 0 0 auto;
+				display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+			}
 			.writing-item:hover .writing-title-link { text-decoration: underline; }
-			.writing-tags-row { display: flex; flex-direction: column; }
-			.writing-tags { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 4px; }
-			.writing-tag { font-family: Helvetica, Arial, sans-serif; font-size: 7px; font-weight: 700; letter-spacing: 0.15px; text-transform: uppercase; padding: 2px 6px; border-radius: 20px; white-space: nowrap; background: #fff; }
+			/* Fix specificity: #main p (line ~903) was beating .writing-title-link's font-size, same issue as .nc-title/.nc-role below */
+			#main .writing-title-link { font-size: 13px !important; }
+			.writing-tags-row { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+			.writing-tags { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 4px; margin-bottom: 6px; }
+			.writing-tag { font-family: Helvetica, Arial, sans-serif; font-size: 7.5px; line-height: 1.3; font-weight: 700; letter-spacing: 0.15px; text-transform: uppercase; padding: 3px 7px; border-radius: 20px; white-space: nowrap; background: #fff; }
 			.writing-tag.matcha { color: #C9772E; } .writing-tag.forest { color: #2F6E5C; } .writing-tag.moss { color: #1E7C8C; }
-			.writing-arrow { flex: 0 0 auto; font-size: 9.5px; font-weight: 700; margin-top: auto; padding-top: 1px; }
+			.writing-arrow { flex: 0 0 auto; font-size: 10.5px; line-height: 1.3; font-weight: 700; margin-top: auto; }
 			.writing-arrow.matcha { color: #C9772E; } .writing-arrow.forest { color: #2F6E5C; } .writing-arrow.moss { color: #1E7C8C; }
 			@media screen and (max-width: 736px) {
-				.writing-list { grid-template-columns: minmax(0, 200px); }
+				.writing-list { grid-template-columns: minmax(0, 220px); }
 			}
+
+/* Status tags beside the sidebar avatar */
+#logo .avatar-tags-wrap { position: relative; }
+.status-tag {
+	position: absolute; font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 800;
+	letter-spacing: 0.25px; text-transform: uppercase; color: #fff; padding: 5px 8px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.35); white-space: nowrap; z-index: 5; line-height: 1.2;
+}
+.status-tag.tag-orange { background: #FF5A1F; }
+.status-tag.tag-pink { background: #FF1F8F; }
+.status-tag.tag-open { top: -6px; left: -28px; transform: rotate(-8deg); }
+.status-tag.tag-grad { bottom: -4px; right: -32px; transform: rotate(6deg); }
+@media screen and (max-width: 1080px) {
+	#logo .avatar-tags-wrap { display: inline-block; }
+	.status-tag { position: static; display: inline-block; transform: none !important; margin: 10px 4px 0; }
+}
+
+/* Featured: LinkedIn post cards */
+#featured-linkedin.two { padding: 1.6em 0 !important; }
+#featured-linkedin header { margin-bottom: 0.9em; }
+.featured-list {
+	max-width: 780px; margin: 0 auto; display: grid;
+	grid-template-columns: repeat(3, minmax(0, 240px)); gap: 16px; justify-content: center;
+}
+.featured-card {
+	display: block; text-decoration: none; border-radius: 10px; overflow: hidden;
+	background: #FFFDF7; border: 1px solid #e6ddc8; box-shadow: 0 4px 14px rgba(70,50,10,0.08);
+	opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.25s ease;
+}
+.featured-card.in-view { opacity: 1; transform: translateY(0); }
+.featured-card:hover { box-shadow: 0 10px 20px rgba(70,50,10,0.14); transform: translateY(-2px); }
+.featured-photo { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #eee; }
+.featured-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.featured-body { padding: 12px 14px 14px; }
+.featured-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 7px; }
+.featured-li-icon { width: 15px; height: 15px; border-radius: 3px; background: #0A66C2; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.featured-li-icon svg { width: 9px; height: 9px; fill: #fff; }
+.featured-meta span { font-family: Helvetica, Arial, sans-serif; font-size: 9.5px; line-height: 1.3; font-weight: 700; letter-spacing: 0.2px; text-transform: uppercase; color: #0A66C2; }
+.featured-title {
+	font-family: Georgia, 'Times New Roman', serif; font-size: 13px; font-weight: bold;
+	color: #2c2c28; line-height: 1.3; margin-bottom: 6px;
+	display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.featured-excerpt {
+	display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+	font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; line-height: 1.4; color: #6b6a5f; margin-bottom: 8px;
+}
+.featured-link { display: block; font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; line-height: 1.3; font-weight: 700; }
+.featured-link.matcha { color: #4d7a2a; } .featured-link.forest { color: #2F4A32; } .featured-link.moss { color: #567A3A; }
+@media screen and (max-width: 736px) {
+	.featured-list { grid-template-columns: minmax(0, 240px); }
+}
 
 /* Calm Experience cards: cream + terracotta accent */
 #experience .cb-matcha, #experience .cb-forest, #experience .cb-moss {
@@ -933,6 +1014,7 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 /* Fix specificity: #main p was beating .nc-title/.nc-role */
 #main .nc-title { font-size: 15px !important; }
 #main .nc-role { font-size: 11px !important; }
+#main .nc-cta { font-size: 11px !important; line-height: 1.4 !important; }
 
 /* Item 2: nav text size matches subtitle */
 @media screen and (min-width: 981px) {
@@ -999,10 +1081,14 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 				<div class="top">
 					<!-- Logo -->
                     <div id="logo">
-							<span class="image avatar64"><img src="images/avatar.jpg" alt="" /></span>
+							<span class="avatar-tags-wrap">
+								<span class="image avatar64"><img src="images/avatar.jpg" alt="" /></span>
+								<span class="status-tag tag-orange tag-open">Open to Work</span>
+								<span class="status-tag tag-pink tag-grad">Cornell MEM &rsquo;26</span>
+							</span>
 							<h1 id="title">Anuprita Kaple</h1>
 							<p>Product, Strategy, Operations </p>
-				
+
 					</div>
 
 					<!-- Nav -->
@@ -1266,7 +1352,7 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 			</div>
 		</a>
 	</div>
-	<p style="text-align:center; margin-top:32px;"><a href="https://medium.com/@anuprita.kaple18" target="_blank" rel="noopener noreferrer" class="button small">View all writing on Medium →</a></p>
+	<p style="text-align:center; margin-top:20px;"><a href="https://medium.com/@anuprita.kaple18" target="_blank" rel="noopener noreferrer" style="font-weight:700; color:#2c2c28;">View all writing on Medium →</a></p>
 	</div>
 </section>
 
@@ -1280,19 +1366,28 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 
 	<div class="nc-grid">
 		<div class="nc-card" onclick="openModal('modal-leadership-cgpmc')">
-			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">President, Cornell Graduate Product Management Club</p>
-			<p class="nc-role matcha">Ithaca, NY</p>
+			<div class="nc-card-photo contain-fit"><img src="images/leadership-cgpmc.jpg" alt="Cornell Graduate Product Management Club Executive Board 2025-2026" loading="lazy"></div>
+			<div class="nc-card-body">
+				<p class="nc-title">President, Cornell Graduate Product Management Club</p>
+				<p class="nc-role matcha">Ithaca, NY</p>
+				<p class="nc-cta matcha">Click to learn more &rarr;</p>
+			</div>
 		</div>
 		<div class="nc-card" onclick="openModal('modal-leadership-canizares')">
-			<div class="nc-icon forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Fellow, The Canizares Center for Emerging Markets</p>
-			<p class="nc-role forest">Ithaca, NY</p>
+			<div class="nc-card-photo"><img src="images/leadership-canizares.jpg" alt="Canizares Center for Emerging Markets graduation event" loading="lazy"></div>
+			<div class="nc-card-body">
+				<p class="nc-title">Fellow, The Canizares Center for Emerging Markets</p>
+				<p class="nc-role forest">Ithaca, NY</p>
+				<p class="nc-cta forest">Click to learn more &rarr;</p>
+			</div>
 		</div>
 		<div class="nc-card" onclick="openModal('modal-leadership-prayatnam')">
-			<div class="nc-icon moss"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">Event Lead, Prayatnam &mdash; VIT Social Welfare &amp; Development Club</p>
-			<p class="nc-role moss">Vellore, India</p>
+			<div class="nc-card-photo"><img src="images/leadership-prayatnam.png" alt="Prayatnam VIT Social Welfare and Development Club group photo" loading="lazy"></div>
+			<div class="nc-card-body">
+				<p class="nc-title">Event Lead, Prayatnam &mdash; VIT Social Welfare &amp; Development Club</p>
+				<p class="nc-role moss">Pune, India</p>
+				<p class="nc-cta moss">Click to learn more &rarr;</p>
+			</div>
 		</div>
 	</div>
 	</div>
@@ -1309,21 +1404,15 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 	</header>
 
 	<div class="timeline-list">
-		<div class="timeline-row">
-			<div class="timeline-date">Aug 2025 – May 2026<br>Ithaca, NY</div>
-			<div class="timeline-dot matcha"></div>
-			<div class="timeline-content" onclick="openModal('modal-edu-cornell')">
-				<p class="timeline-institution">Cornell University</p>
-				<p class="timeline-degree matcha">M.Eng. in Engineering Management</p>
-			</div>
+		<div class="timeline-content" onclick="openModal('modal-edu-cornell')">
+			<span class="timeline-dot matcha"></span>
+			<span class="timeline-main"><span class="timeline-institution">Cornell University</span><span class="timeline-degree matcha">M.Eng. in Engineering Management</span></span>
+			<span class="timeline-date">Aug 2025 – May 2026<br>Ithaca, NY</span>
 		</div>
-		<div class="timeline-row">
-			<div class="timeline-date">Aug 2018 – May 2022<br>Pune, India</div>
-			<div class="timeline-dot forest"></div>
-			<div class="timeline-content" onclick="openModal('modal-edu-vit')">
-				<p class="timeline-institution">Vishwakarma Institute of Technology</p>
-				<p class="timeline-degree forest">B.Tech, Mechanical Engineering</p>
-			</div>
+		<div class="timeline-content" onclick="openModal('modal-edu-vit')">
+			<span class="timeline-dot forest"></span>
+			<span class="timeline-main"><span class="timeline-institution">Vishwakarma Institute of Technology</span><span class="timeline-degree forest">B.Tech, Mechanical Engineering</span></span>
+			<span class="timeline-date">Aug 2018 – May 2022<br>Pune, India</span>
 		</div>
 	</div>
 	</div>
@@ -1338,12 +1427,33 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 		<p>Selected posts and articles. Click through to read the full post on LinkedIn.</p>
 	</header>
 
-	<div class="nc-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 260px)); max-width: 500px; justify-content: center;">
-		<a class="nc-card" href="https://www.linkedin.com/feed/update/urn:li:activity:7462626131335184384/" target="_blank" rel="noopener noreferrer">
-			<div class="nc-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
-			<p class="nc-title">India’s Digital Pull Revolution: How Kirana Stores Are Reshaping Global Retail</p>
-			<p class="nc-role matcha">Cornell EMC² Feature</p>
-			<p class="nc-desc">Cornell EMC² feature — &ldquo;What genuinely surprised me was the speed at which developing economies can adopt new technology when the right ecosystem is in place.&rdquo;</p>
+	<div class="featured-list">
+		<a class="featured-card" href="https://www.linkedin.com/posts/cornell-college-of-business-emerging-markets_emc2-cornell-classof2026-activity-7468432652187013121-hEnJ" target="_blank" rel="noopener noreferrer">
+			<div class="featured-photo"><img src="images/featured-emc2-grad.jpg" alt="Cornell EMC² Fellows Class of 2026 graduation photo" loading="lazy"></div>
+			<div class="featured-body">
+				<div class="featured-meta"><span class="featured-li-icon"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/></svg></span><span>LinkedIn Post</span></div>
+				<span class="featured-title">Once an EMC&sup2; Fellow, always an EMC&sup2; Fellow</span>
+				<span class="featured-excerpt">Celebrating the Class of 2026 EMC&sup2; Fellows graduation at Cornell SC Johnson College of Business.</span>
+				<span class="featured-link matcha">View post &rarr;</span>
+			</div>
+		</a>
+		<a class="featured-card" href="https://www.linkedin.com/posts/cornell-college-of-business-emerging-markets_india-retail-emergingmarkets-activity-7462525023325585409-dEN-" target="_blank" rel="noopener noreferrer">
+			<div class="featured-photo"><img src="images/featured-kirana-blog.jpg" alt="Cornell EMC² blog post graphic: India's digital pull revolution" loading="lazy"></div>
+			<div class="featured-body">
+				<div class="featured-meta"><span class="featured-li-icon"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/></svg></span><span>LinkedIn Post</span></div>
+				<span class="featured-title">India&rsquo;s Digital Pull Revolution: How Kirana Stores Are Reshaping Global Retail</span>
+				<span class="featured-excerpt">Cornell EMC&sup2; blog feature on how app-based ordering, UPI payments, and open networks are turning India&rsquo;s kirana stores into a real-time, data-driven retail system.</span>
+				<span class="featured-link forest">View post &rarr;</span>
+			</div>
+		</a>
+		<a class="featured-card" href="https://www.linkedin.com/posts/cornellgpmc_cornellgpmc-meettheboard-productmanagement-activity-7458168793681362944-h3pv" target="_blank" rel="noopener noreferrer">
+			<div class="featured-photo"><img src="images/featured-cgpmc-board.jpg" alt="Cornell Graduate Product Management Club Executive Board 2025-2026 announcement" loading="lazy"></div>
+			<div class="featured-body">
+				<div class="featured-meta"><span class="featured-li-icon"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/></svg></span><span>LinkedIn Post</span></div>
+				<span class="featured-title">Meet the Board: Cornell GPMC Executive Board 2025&ndash;2026</span>
+				<span class="featured-excerpt">Introducing the Cornell Graduate Product Management Club&rsquo;s executive board for the 2025&ndash;2026 year.</span>
+				<span class="featured-link moss">View post &rarr;</span>
+			</div>
 		</a>
 	</div>
 	</div>
@@ -1496,7 +1606,7 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
             });
 			
 document.addEventListener("DOMContentLoaded", function () {
-	var blocks = document.querySelectorAll('.color-block-list .color-block, .color-block-list .item.color-block, .nc-grid .nc-card, .timeline-list .timeline-content, .writing-list .writing-item');
+	var blocks = document.querySelectorAll('.color-block-list .color-block, .color-block-list .item.color-block, .nc-grid .nc-card, .timeline-list .timeline-content, .writing-list .writing-item, .featured-list .featured-card');
 	if ('IntersectionObserver' in window) {
 		var io = new IntersectionObserver(function(entries) {
 			entries.forEach(function(entry) {
@@ -2214,6 +2324,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			<h2>President, Cornell Graduate Product Management Club</h2>
 
+			<img src="images/leadership-cgpmc.jpg" alt="Cornell Graduate Product Management Club Executive Board 2025-2026" style="width: 48%; display: block; margin: 1em auto 2em; height: auto; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+
 			<h4>SITUATION</h4>
 
 			<p>The club was operating informally in the background without campus recognition, official governance, or dedicated funding. As President, the challenge was to transition this student group into a fully accredited, well-funded university entity capable of delivering its core professional development and experiential learning mission to the graduate community.</p>
@@ -2229,6 +2341,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			<p>Successfully transformed an informal group into an officially recognized, funded university club with a structured pipeline for technical skill development, company treks, and alumni mentorship. Driven collaborations expanded the club's network and directly culminated in Cornell securing the 2nd prize in a major multi-university Product Management Hackathon.</p>
 
+			<a href="https://www.linkedin.com/company/cornellgpmc/" target="_blank" rel="noopener noreferrer" class="button small live-demo">View on LinkedIn &#8599;</a>
 			<a href="javascript:void(0)" onclick="closeModal('modal-leadership-cgpmc')" class="button small">Close Project</a>
 		</div>
 	</div>
@@ -2239,6 +2352,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			<span class="close-modal" onclick="closeModal('modal-leadership-canizares')">&times;</span>
 
 			<h2>Fellow, The Cañizares Center for Emerging Markets</h2>
+
+			<img src="images/leadership-canizares.jpg" alt="Canizares Center for Emerging Markets graduation event" style="width: 70%; display: block; margin: 1em auto 2em; height: auto; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
 
 			<h4>SITUATION</h4>
 
@@ -2255,6 +2370,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			<p>Served as the cohort's only Master of Engineering Fellow for the academic year. Published a highly strategic, industry-relevant article through the Cañizares Center, offering a blueprint for modernizing fragmented retail ecosystems across global emerging markets.</p>
 
+			<a href="https://business.cornell.edu/centers/2026/05/13/indias-digital-pull-revolution/" target="_blank" rel="noopener noreferrer" class="button small live-demo">Read the Article &#8599;</a>
 			<a href="javascript:void(0)" onclick="closeModal('modal-leadership-canizares')" class="button small">Close Project</a>
 		</div>
 	</div>
@@ -2265,6 +2381,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			<span class="close-modal" onclick="closeModal('modal-leadership-prayatnam')">&times;</span>
 
 			<h2>Event Lead, Prayatnam — VIT Social Welfare & Development Club</h2>
+
+			<img src="images/leadership-prayatnam.png" alt="Prayatnam VIT Social Welfare and Development Club group photo" style="width: 60%; display: block; margin: 1em auto 2em; height: auto; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
 
 			<h4>SITUATION</h4>
 
@@ -2282,6 +2400,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			<p>Successfully initiated and conducted the 3-month program without delay, directly supporting the educational development of 30+ students. School faculty and administrators were highly impressed by the team's enthusiasm and the seamless execution of the initiative.</p>
 
+			<a href="https://swd.vit.edu/" target="_blank" rel="noopener noreferrer" class="button small live-demo">Visit SWD VIT &#8599;</a>
 			<a href="javascript:void(0)" onclick="closeModal('modal-leadership-prayatnam')" class="button small">Close Project</a>
 		</div>
 	</div>
