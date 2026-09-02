@@ -787,11 +787,11 @@ a:hover { color: #2F4A32; }
 			   (1 per row on mobile) so the squares stay large enough to read comfortably.
 			   Face shows image + title + subtitle + a one-line description/proof/tech snippet — each
 			   detail line is forced to a single line via nowrap+ellipsis so nothing wraps or overlaps. */
-			#ai-projects .nc-grid, #portfolio .nc-grid { max-width: 950px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; align-items: start; }
+			#ai-projects .nc-grid, #portfolio .nc-grid { max-width: 780px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 26px; align-items: start; }
 			@media screen and (min-width: 736px) {
-				#ai-projects .nc-grid, #portfolio .nc-grid { grid-template-columns: repeat(3, 1fr); }
+				#ai-projects .nc-grid, #portfolio .nc-grid { grid-template-columns: repeat(2, 1fr); }
 			}
-			#ai-projects .nc-card, #portfolio .nc-card.ai-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; aspect-ratio: 1 / 1; max-width: 270px; margin: 0 auto; width: 100%; }
+			#ai-projects .nc-card, #portfolio .nc-card.ai-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; aspect-ratio: 1 / 1; max-width: 350px; margin: 0 auto; width: 100%; }
 			/* Selected Projects cards also carry the legacy .item class (height:350px, fixed) from an earlier
 			   card system — override it here so the square aspect-ratio governs height instead. */
 			#portfolio .nc-card.ai-card.item { height: auto !important; }
@@ -799,21 +799,28 @@ a:hover { color: #2F4A32; }
 			.ai-card-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
 			.ai-card-visual.logo-fit { background: #FAFAF5; }
 			.ai-card-visual.logo-fit img { width: auto; height: auto; max-width: 55%; max-height: 50%; object-fit: contain; }
-			.ai-card-visual svg { width: 26px; height: 26px; color: #fff; opacity: 0.9; }
+			.ai-card-visual.diagram-fit { background: #fff; }
+			.ai-card-visual.diagram-fit img { width: 94%; height: 94%; object-fit: contain; }
+			.ai-card-visual svg { width: 32px; height: 32px; color: #fff; opacity: 0.9; }
 			.ai-card-visual.matcha { background: linear-gradient(135deg, #8FBF4D, #5c8a34); }
 			.ai-card-visual.forest { background: linear-gradient(135deg, #45664a, #1F3320); }
 			.ai-card-visual.moss { background: linear-gradient(135deg, #6c9048, #3f5c29); }
-			.ai-card-body { flex: 0 0 auto; min-height: 0; padding: 12px 14px 12px; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; text-align: center; overflow: hidden; }
-			.ai-card-title { font-family: Georgia, 'Times New Roman', serif; font-size: 14px; font-weight: bold; color: #2c2c28; margin: 0; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+			.ai-card-body { flex: 0 0 auto; min-height: 0; padding: 15px 18px 15px; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; text-align: center; overflow: hidden; }
+			.ai-card-title { font-family: Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: bold; color: #2c2c28; margin: 0; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 			.ai-card-subtitle, .ai-card-desc, .ai-card-proof, .ai-card-tech { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; }
-			.ai-card-subtitle { font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.2px; margin: 5px 0 0; line-height: 1.25; }
+			.ai-card-subtitle { font-family: Helvetica, Arial, sans-serif; font-size: 13.5px; font-weight: 700; letter-spacing: 0.2px; margin: 7px 0 0; line-height: 1.25; }
 			.ai-card-subtitle.matcha { color: #4d7a2a; } .ai-card-subtitle.forest { color: #2F4A32; } .ai-card-subtitle.moss { color: #567A3A; }
-			.ai-card-desc { font-family: Helvetica, Arial, sans-serif; font-size: 9.5px; color: #7a7a70; margin: 5px 0 0; line-height: 1.3; }
-			.ai-card-proof { font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; color: #8a7a4f; margin: 4px 0 0; line-height: 1.25; }
-			.ai-card-tech { font-family: Helvetica, Arial, sans-serif; font-size: 8px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; color: #a3a396; margin: 4px 0 0; line-height: 1.25; }
-			.ai-card-cta { font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 700; margin: 6px 0 0; line-height: 1; transition: transform 0.2s ease; }
-			#ai-projects .nc-card:hover .ai-card-cta, #portfolio .nc-card.ai-card:hover .ai-card-cta { transform: translateX(3px); }
-			.ai-card-cta.matcha { color: #4d7a2a; } .ai-card-cta.forest { color: #2F4A32; } .ai-card-cta.moss { color: #567A3A; }
+			.ai-card-desc { font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #7a7a70; margin: 7px 0 0; line-height: 1.3; }
+			.ai-card-proof { font-family: Helvetica, Arial, sans-serif; font-size: 11.5px; font-weight: 700; color: #8a7a4f; margin: 6px 0 0; line-height: 1.25; }
+			.ai-card-tech { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; color: #a3a396; margin: 6px 0 0; line-height: 1.25; }
+			.button.live-demo { background-color: #5c8a34; margin-right: 10px; }
+			.button.live-demo:hover { background-color: #6c9c40; }
+			.ai-card-cta { font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; margin: 9px auto 0; line-height: 1; color: #fff; background: #3F6B21; padding: 5px 15px; border-radius: 20px; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; transition: transform 0.2s ease, background 0.2s ease; }
+			/* Single hybrid line (what it does + its strongest number) replacing subtitle+desc+proof+tech
+			   on the 4 AI Builds cards only -- Selected Projects keeps its own subtitle/desc/proof/tech. */
+			.ai-card-line { font-family: Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: 600; margin: 9px 0 0; line-height: 1.35; text-align: center; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+			.ai-card-line.matcha { color: #4d7a2a; } .ai-card-line.forest { color: #2F4A32; } .ai-card-line.moss { color: #567A3A; }
+			#ai-projects .nc-card:hover .ai-card-cta, #portfolio .nc-card.ai-card:hover .ai-card-cta { transform: translateX(3px); background: #345a1b; }
 			.timeline-list { max-width: 900px; margin: 0 auto; }
 			.timeline-row { display: grid; grid-template-columns: 130px 16px 1fr; gap: 18px; padding: 14px 0; position: relative; }
 			.timeline-row:not(:last-child)::after { content: ""; position: absolute; left: 136px; top: 34px; bottom: -14px; width: 2px; background: #ddd2b3; }
@@ -828,50 +835,41 @@ a:hover { color: #2F4A32; }
 			.nc-card.in-view, .timeline-content.in-view { opacity: 1; transform: translateY(0); }
 
 
-			/* Writing & Perspectives: "The Trail" — a dotted path connects three waypoints, each essay
-			   presented as a stop along the trail. Plays on the same matcha/forest/moss botanical
-			   palette used throughout the rest of the site. */
-			.writing-list { max-width: 640px; margin: 0 auto; position: relative; padding-left: 60px; }
-			.writing-list::before {
-				content: ''; position: absolute; left: 21px; top: 8px; bottom: 8px; width: 2px;
-				background: repeating-linear-gradient(to bottom, #cfc7ac 0, #cfc7ac 4px, transparent 4px, transparent 9px);
+			/* Writing & Perspectives: brighter, boxed creative space — 3 glass-effect boxes on a
+			   citrus gradient backdrop, deliberately distinct from the rest of the site's palette
+			   since this section is meant to read as a separate, more playful "creative" zone. */
+			#writing.two { background: linear-gradient(120deg, #FFE9C7 0%, #D7F0D2 55%, #C9EDE4 100%) !important; }
+			.writing-list {
+				max-width: 560px; margin: 0 auto; display: grid;
+				grid-template-columns: repeat(3, minmax(0, 160px)); gap: 10px; justify-content: center;
 			}
 			.writing-item {
-				position: relative; display: block; text-decoration: none; text-align: left;
-				margin-bottom: 46px;
+				position: relative; display: flex; flex-direction: column; text-decoration: none; text-align: left;
+				border-radius: 10px; padding: 8px 10px;
+				background: rgba(255,255,255,0.55); border: 1.5px solid rgba(255,255,255,0.9);
 				opacity: 0; transform: translateY(14px);
-				transition: opacity 0.6s ease, transform 0.6s ease;
+				transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.25s ease;
 			}
-			.writing-item:last-child { margin-bottom: 0; }
 			.writing-item.in-view { opacity: 1; transform: translateY(0); }
+			.writing-item:hover { box-shadow: 0 8px 18px rgba(47,74,50,0.14); transform: translateY(-2px); }
 			.writing-icon {
-				position: absolute; left: -60px; top: 0; width: 44px; height: 44px; border-radius: 50%;
-				display: flex; align-items: center; justify-content: center; color: #fff;
-				box-shadow: 0 3px 8px rgba(0,0,0,0.18); transition: transform 0.25s ease; z-index: 1;
+				width: 20px; height: 20px; border-radius: 6px; margin-bottom: 5px;
+				display: flex; align-items: center; justify-content: center;
+				background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 			}
-			.writing-icon svg { width: 18px; height: 18px; }
-			.writing-icon.matcha { background: #8FBF4D; } .writing-icon.forest { background: #2F4A32; } .writing-icon.moss { background: #567A3A; }
-			.writing-item:hover .writing-icon { transform: scale(1.08) rotate(-4deg); }
-			.writing-main { min-width: 0; }
-			.writing-step { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin: 4px 0 6px; }
-			.writing-step.matcha { color: #4d7a2a; } .writing-step.forest { color: #2F4A32; } .writing-step.moss { color: #567A3A; }
-			.writing-title-link { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; color: #2c2c28; line-height: 1.3; margin: 0 0 12px; }
-			.writing-item:hover .writing-title-link { color: #2F4A32; text-decoration: underline; }
-			.writing-tags-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-			.writing-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-			.writing-tag { font-family: Helvetica, Arial, sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; padding: 4px 11px; border-radius: 20px; white-space: nowrap; }
-			.writing-tag.matcha { background: rgba(143,191,77,0.15); color: #4d7a2a; }
-			.writing-tag.forest { background: rgba(47,74,50,0.10); color: #2F4A32; }
-			.writing-tag.moss { background: rgba(86,122,58,0.13); color: #567A3A; }
-			.writing-arrow { flex: 0 0 auto; font-size: 16px; font-weight: 700; opacity: 0; transform: translateX(-6px); transition: opacity 0.25s ease, transform 0.25s ease; }
-			.writing-arrow.matcha { color: #4d7a2a; } .writing-arrow.forest { color: #2F4A32; } .writing-arrow.moss { color: #567A3A; }
-			.writing-item:hover .writing-arrow { opacity: 1; transform: translateX(0); }
-			@media screen and (max-width: 480px) {
-				.writing-list { padding-left: 50px; }
-				.writing-list::before { left: 17px; }
-				.writing-icon { left: -50px; width: 36px; height: 36px; }
-				.writing-icon svg { width: 15px; height: 15px; }
-				.writing-title-link { font-size: 18px; }
+			.writing-icon svg { width: 11px; height: 11px; }
+			.writing-icon.matcha { color: #C9772E; } .writing-icon.forest { color: #2F6E5C; } .writing-icon.moss { color: #1E7C8C; }
+			.writing-main { min-width: 0; display: flex; flex-direction: column; flex: 1; }
+			.writing-title-link { font-family: Georgia, 'Times New Roman', serif; font-size: 11.5px; font-weight: bold; color: #2c2c28; line-height: 1.2; margin: 0 0 5px; }
+			.writing-item:hover .writing-title-link { text-decoration: underline; }
+			.writing-tags-row { display: flex; flex-direction: column; }
+			.writing-tags { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 4px; }
+			.writing-tag { font-family: Helvetica, Arial, sans-serif; font-size: 7px; font-weight: 700; letter-spacing: 0.15px; text-transform: uppercase; padding: 2px 6px; border-radius: 20px; white-space: nowrap; background: #fff; }
+			.writing-tag.matcha { color: #C9772E; } .writing-tag.forest { color: #2F6E5C; } .writing-tag.moss { color: #1E7C8C; }
+			.writing-arrow { flex: 0 0 auto; font-size: 9.5px; font-weight: 700; margin-top: auto; padding-top: 1px; }
+			.writing-arrow.matcha { color: #C9772E; } .writing-arrow.forest { color: #2F6E5C; } .writing-arrow.moss { color: #1E7C8C; }
+			@media screen and (max-width: 736px) {
+				.writing-list { grid-template-columns: minmax(0, 200px); }
 			}
 
 /* Calm Experience cards: cream + terracotta accent */
@@ -1117,47 +1115,35 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 
 	<div class="nc-grid">
 		<div class="nc-card ai-card" onclick="openModal('modal-menu-intelligence')">
-			<div class="ai-card-visual matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V10M12 20V4M20 20v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+			<div class="ai-card-visual matcha"><img src="images/menu-intelligence.png" alt="Menu Intelligence competitive analysis graphic" loading="lazy"></div>
 			<div class="ai-card-body">
 				<p class="ai-card-title">Menu Intelligence</p>
-				<p class="ai-card-subtitle matcha">AI-powered competitive intelligence</p>
-				<p class="ai-card-desc">An LLM + RAG pipeline that analyzes restaurant menus to identify competitive gaps and opportunities.</p>
-				<p class="ai-card-proof">35 dishes · 3 chains · 2 AI approaches</p>
-				<p class="ai-card-tech">Python · Claude API · RAG</p>
-				<p class="ai-card-cta matcha">→</p>
+				<p class="ai-card-line matcha">LLM + RAG pipeline analyzing 35 dishes across 3 competitor chains to find menu gaps.</p>
+				<p class="ai-card-cta">Know More →</p>
 			</div>
 		</div>
 		<div class="nc-card ai-card" onclick="openModal('modal-career-ops')">
-			<div class="ai-card-visual forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+			<div class="ai-card-visual forest diagram-fit"><img src="images/career-ops.png" alt="Career Ops Agent autonomous job-search pipeline diagram" loading="lazy"></div>
 			<div class="ai-card-body">
-				<p class="ai-card-title">Career Ops AI</p>
-				<p class="ai-card-subtitle forest">Autonomous job intelligence</p>
-				<p class="ai-card-desc">An AI agent that monitors 100+ companies, detects ATS changes, filters opportunities, and delivers curated job alerts automatically.</p>
-				<p class="ai-card-proof">100+ companies · 6 ATS platforms · 2× daily</p>
-				<p class="ai-card-tech">Python · AI Agents · ATS APIs</p>
-				<p class="ai-card-cta forest">→</p>
+				<p class="ai-card-title">Career Ops Agent</p>
+				<p class="ai-card-line forest">AI agent monitoring 100+ companies, delivering curated job alerts twice daily.</p>
+				<p class="ai-card-cta">Know More →</p>
 			</div>
 		</div>
 		<div class="nc-card ai-card" onclick="openModal('modal-mcp-weather')">
-			<div class="ai-card-visual moss"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 18a4 4 0 0 1-.6-7.96A5 5 0 0 1 16 8a3.5 3.5 0 0 1 1 6.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 18h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+			<div class="ai-card-visual moss"><img src="images/mcp-weather.png" alt="MCP Weather server integration diagram" loading="lazy"></div>
 			<div class="ai-card-body">
 				<p class="ai-card-title">MCP Weather</p>
-				<p class="ai-card-subtitle moss">Real-time AI tool integration</p>
-				<p class="ai-card-desc">A custom MCP server that gives an LLM access to live weather data through external APIs.</p>
-				<p class="ai-card-proof">2 MCP servers · 6 tools · live data</p>
-				<p class="ai-card-tech">Python · MCP · APIs · Claude</p>
-				<p class="ai-card-cta moss">→</p>
+				<p class="ai-card-line moss">Custom MCP server exposing 6 live tools that give an LLM real-time weather data.</p>
+				<p class="ai-card-cta">Know More →</p>
 			</div>
 		</div>
 		<div class="nc-card ai-card" onclick="openModal('modal-rps-esp32')">
-			<div class="ai-card-visual matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+			<div class="ai-card-visual matcha"><img src="images/rps-esp32.png" alt="Rock Paper Scissor with ESP32-CNN gesture recognition robot camera graphic" loading="lazy"></div>
 			<div class="ai-card-body">
-				<p class="ai-card-title">RPS-ESP32-CNN</p>
-				<p class="ai-card-subtitle matcha">Edge AI from hardware to inference</p>
-				<p class="ai-card-desc">A computer-vision system built end-to-end—from custom image collection and CNN training to live embedded inference.</p>
-				<p class="ai-card-proof">Custom dataset · CNN · ESP32 · live inference</p>
-				<p class="ai-card-tech">ESP32 · TensorFlow · CNN · MicroPython</p>
-				<p class="ai-card-cta matcha">→</p>
+				<p class="ai-card-title">Rock Paper Scissors, ESP32</p>
+				<p class="ai-card-line matcha">End-to-end CNN vision system, from custom training to live inference on ESP32.</p>
+				<p class="ai-card-cta">Know More →</p>
 			</div>
 		</div>
 	</div>
@@ -1194,10 +1180,8 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 			<div class="ai-card-body">
 				<p class="ai-card-title">Market Basket Analysis</p>
 				<p class="ai-card-subtitle matcha">Data &amp; Product</p>
-				<p class="ai-card-desc">Applied K-Means, ECLAT, and FP-Growth to a large retail transaction dataset to uncover customer segments and cross-sell opportunities.</p>
-				<p class="ai-card-proof">387,985 transactions · 968 itemsets · lift up to 56.6</p>
-				<p class="ai-card-tech">R · Python · K-Means · FP-Growth</p>
-				<p class="ai-card-cta matcha">→</p>
+				<p class="ai-card-line matcha">Mined 387,985 transactions to uncover customer segments and cross-sell opportunities.</p>
+				<p class="ai-card-cta">Know More →</p>
 			</div>
 		</div>
 		<div class="item filter-item ops-sys nc-card ai-card" onclick="openModal('modal-bigred')">
@@ -1205,10 +1189,8 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 			<div class="ai-card-body">
 				<p class="ai-card-title">Big Red Bites</p>
 				<p class="ai-card-subtitle forest">Operations &amp; Systems</p>
-				<p class="ai-card-desc">Led a 14-member cross-functional team through strategic planning and a 7-month execution roadmap for a campus food-waste platform.</p>
-				<p class="ai-card-proof">14-member team · $106K budget · 3rd place finish</p>
-				<p class="ai-card-tech">Notion · GANTT Planning · UX Prototyping</p>
-				<p class="ai-card-cta forest">→</p>
+				<p class="ai-card-line forest">Directed a 14-member cross-functional team to a 3rd-place finish on a $106K initiative.</p>
+				<p class="ai-card-cta">Know More →</p>
 			</div>
 		</div>
 		<div class="item filter-item data-prod nc-card ai-card" onclick="openModal('modal-plant')">
@@ -1216,10 +1198,8 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 			<div class="ai-card-body">
 				<p class="ai-card-title">Plant-Based Snack Strategy</p>
 				<p class="ai-card-subtitle moss">Data &amp; Product</p>
-				<p class="ai-card-desc">Built a data-led market entry strategy for a plant-based protein bar using price clustering, EMV decision trees, and MAUT analysis.</p>
-				<p class="ai-card-proof">$42.5M EMV · 99.94% robustness · 8-state analysis</p>
-				<p class="ai-card-tech">K-Means · Decision Trees · MAUT</p>
-				<p class="ai-card-cta moss">→</p>
+				<p class="ai-card-line moss">Data-led strategy identifying a $42.5M opportunity for a plant-based snack.</p>
+				<p class="ai-card-cta">Know More →</p>
 			</div>
 		</div>
 		<div class="item filter-item ops-sys nc-card ai-card" onclick="openModal('modal-crdf')">
@@ -1227,10 +1207,8 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 			<div class="ai-card-body">
 				<p class="ai-card-title">Robotic Arm, CRDF</p>
 				<p class="ai-card-subtitle matcha">Operations &amp; Systems</p>
-				<p class="ai-card-desc">Designed and simulated a 6-DOF robotic arm end-to-end, coordinating hands-on technical build with weekly team delivery milestones.</p>
-				<p class="ai-card-proof">6 DOF · ROS simulation · weekly milestones</p>
-				<p class="ai-card-tech">ROS · Robotics · Simulation</p>
-				<p class="ai-card-cta matcha">→</p>
+				<p class="ai-card-line matcha">Designed and simulated a 6-DOF robotic arm, from CAD through ROS testing.</p>
+				<p class="ai-card-cta">Know More →</p>
 			</div>
 		</div>
 		<div class="item filter-item data-prod nc-card ai-card" onclick="openModal('modal-drivebuddy')">
@@ -1238,10 +1216,8 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 			<div class="ai-card-body">
 				<p class="ai-card-title">DriveBuddyAI</p>
 				<p class="ai-card-subtitle forest">Data &amp; Product</p>
-				<p class="ai-card-desc">Architected a real-time video capture, storage, and playback pipeline for fleet safety monitoring at an AI-powered telematics startup.</p>
-				<p class="ai-card-proof">End-to-end pipeline · real-time video · fleet-scale</p>
-				<p class="ai-card-tech">C++ · OpenCV · ROS</p>
-				<p class="ai-card-cta forest">→</p>
+				<p class="ai-card-line forest">Real-time OpenCV/ROS camera node for fleet-wide safety at an autonomous driving startup.</p>
+				<p class="ai-card-cta">Know More →</p>
 			</div>
 		</div>
 	</div>
@@ -1262,33 +1238,30 @@ body, body * { font-family: "Source Sans Pro", sans-serif !important; }
 		<a class="writing-item" href="https://medium.com/@anuprita.kaple18/screaming-into-the-algorithm-the-fight-to-be-seen-a2872c52cad0" target="_blank" rel="noopener noreferrer">
 			<div class="writing-icon matcha"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10v4a1 1 0 0 0 1 1h2l4 4v-14l-4 4H4a1 1 0 0 0-1 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M15 8a4 4 0 0 1 0 8M18 5a8 8 0 0 1 0 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
 			<div class="writing-main">
-				<p class="writing-step matcha">Waypoint 01</p>
 				<p class="writing-title-link">Screaming into the Algorithm</p>
 				<div class="writing-tags-row">
 					<div class="writing-tags"><span class="writing-tag matcha">Technology</span><span class="writing-tag matcha">Work</span><span class="writing-tag matcha">Human Behavior</span></div>
-					<span class="writing-arrow matcha">→</span>
+					<span class="writing-arrow matcha">Read →</span>
 				</div>
 			</div>
 		</a>
 		<a class="writing-item" href="https://medium.com/@anuprita.kaple18/creating-demand-and-seeking-truth-day-one-at-spmi-immersion-3da556b44e76" target="_blank" rel="noopener noreferrer">
 			<div class="writing-icon forest"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M15 9l-2 6-6 2 2-6 6-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
 			<div class="writing-main">
-				<p class="writing-step forest">Waypoint 02</p>
 				<p class="writing-title-link">Creating Demand and Seeking Truth</p>
 				<div class="writing-tags-row">
 					<div class="writing-tags"><span class="writing-tag forest">Strategy</span><span class="writing-tag forest">Consumers</span><span class="writing-tag forest">Decision-Making</span></div>
-					<span class="writing-arrow forest">→</span>
+					<span class="writing-arrow forest">Read →</span>
 				</div>
 			</div>
 		</a>
 		<a class="writing-item" href="https://medium.com/@anuprita.kaple18/searching-for-the-outliers-0c9e364c8bb2" target="_blank" rel="noopener noreferrer">
 			<div class="writing-icon moss"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l2.5 5.5L20 9l-4.5 4 1.2 6L12 16l-4.7 3 1.2-6L4 9l5.5-.5L12 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
 			<div class="writing-main">
-				<p class="writing-step moss">Waypoint 03</p>
 				<p class="writing-title-link">Searching for the Outliers</p>
 				<div class="writing-tags-row">
 					<div class="writing-tags"><span class="writing-tag moss">Leadership</span><span class="writing-tag moss">Character</span><span class="writing-tag moss">Organizations</span></div>
-					<span class="writing-arrow moss">→</span>
+					<span class="writing-arrow moss">Read →</span>
 				</div>
 			</div>
 		</a>
@@ -2126,12 +2099,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	NEW PROJECT MODALS
 	======================= -->
 
-	<!-- 6. Career Ops AI Agent -->
+	<!-- 6. Career Ops Agent -->
 	<div id="modal-career-ops" class="modal">
 		<div class="modal-content">
 			<span class="close-modal" onclick="closeModal('modal-career-ops')">&times;</span>
 
-			<h2>Career Ops AI Agent — Autonomous Job Intelligence Pipeline</h2>
+			<h2>Career Ops Agent — Autonomous Job Intelligence Pipeline</h2>
 
 			<h4>SITUATION</h4>
 
@@ -2148,16 +2121,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			<p>Eliminated all manual intervention — zero human triggers required. The system self-corrects its own data layer, maintains 100% ATS coverage, and delivers fit-filtered opportunities on a fully automated cadence.</p>
 
+			<a href="https://01a06068-cd49-fb48-fbd0-ce5fbba7ac5a.share.connect.posit.cloud/" target="_blank" rel="noopener noreferrer" class="button small live-demo">Try it Live &#8599;</a>
 			<a href="javascript:void(0)" onclick="closeModal('modal-career-ops')" class="button small">Close Project</a>
 		</div>
 	</div>
 
-	<!-- 7. RPS-ESP32-CNN -->
+	<!-- 7. Rock Paper Scissor with ESP32-CNN -->
 	<div id="modal-rps-esp32" class="modal">
 		<div class="modal-content">
 			<span class="close-modal" onclick="closeModal('modal-rps-esp32')">&times;</span>
 
-			<h2>RPS-ESP32-CNN — End-to-End Edge AI Deployment</h2>
+			<h2>Rock Paper Scissor with ESP32-CNN — End-to-End Edge AI Deployment</h2>
 
 			<h4>SITUATION</h4>
 
@@ -2174,6 +2148,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			<h4>KEY TECHNOLOGIES</h4>
 			<p>TensorFlow/Keras, ESP32-CAM, MicroPython, CNN</p>
 
+			<a href="https://01a06033-f364-b753-bb3a-6398c18824e7.share.connect.posit.cloud/" target="_blank" rel="noopener noreferrer" class="button small live-demo">Try it Live &#8599;</a>
 			<a href="javascript:void(0)" onclick="closeModal('modal-rps-esp32')" class="button small">Close Project</a>
 		</div>
 	</div>
@@ -2200,6 +2175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			<h4>KEY TECHNOLOGIES</h4>
 			<p>Claude API, RAG, Python</p>
 
+			<a href="https://01a050bb-da98-08b0-4768-179418f262e9.share.connect.posit.cloud/" target="_blank" rel="noopener noreferrer" class="button small live-demo">Try it Live &#8599;</a>
 			<a href="javascript:void(0)" onclick="closeModal('modal-menu-intelligence')" class="button small">Close Project</a>
 		</div>
 	</div>
@@ -2226,6 +2202,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			<h4>KEY TECHNOLOGIES</h4>
 			<p>Python, MCP (Model Context Protocol), US National Weather Service API</p>
 
+			<a href="https://01a06068-cd49-fb48-fbd0-ce5fbba7ac5a.share.connect.posit.cloud/" target="_blank" rel="noopener noreferrer" class="button small live-demo">Try it Live &#8599;</a>
 			<a href="javascript:void(0)" onclick="closeModal('modal-mcp-weather')" class="button small">Close Project</a>
 		</div>
 	</div>
